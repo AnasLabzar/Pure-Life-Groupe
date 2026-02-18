@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGU - Conditions Générales d'Utilisation | Pure Life Groupe</title>
+
+    <meta name="description"
+        content="Leader de la rénovation énergétique et éclairage LED industriel. Solutions financées à 100% par le dispositif CEE. Audit gratuit et installation RGE.">
+    <meta name="keywords"
+        content="Relamping LED, CEE, Rénovation énergétique, Éclairage industriel, RGE, Pure Life Groupe">
+    <meta name="author" content="Pure Life Groupe">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="assets/img/favicon 2.png" type="image/png">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* =========================================
+           1. DESIGN SYSTEM (Identique)
+           ========================================= */
+        :root {
+            --bg-body: #020617;
+            --bg-surface: #0f172a;
+            --primary: #10B981;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: rgba(255, 255, 255, 0.08);
+            --nav-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* =========================================
+           2. HEADER
+           ========================================= */
+        .page-header {
+            padding: 140px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(16, 185, 129, 0.1), transparent 50%);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* =========================================
+           3. LAYOUT (Sidebar + Content)
+           ========================================= */
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        /* Sidebar Fixe */
+        .legal-sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+            padding: 30px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .legal-sidebar h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .toc-list li {
+            margin-bottom: 12px;
+        }
+
+        .toc-link {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            padding-left: 15px;
+            border-left: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .toc-link:hover,
+        .toc-link.active {
+            color: var(--primary);
+            border-left-color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Contenu */
+        .legal-content {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .legal-article {
+            margin-bottom: 60px;
+            scroll-margin-top: 140px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding-bottom: 40px;
+        }
+
+        .legal-article:last-child {
+            border-bottom: none;
+        }
+
+        .legal-article h2 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .legal-article h2 i {
+            color: var(--primary);
+            font-size: 1.6rem;
+            opacity: 0.8;
+        }
+
+        .legal-article p {
+            color: #CBD5E1;
+            margin-bottom: 15px;
+        }
+
+        .alert-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #bfdbfe;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .legal-sidebar {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .legal-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <a href="/" class="nav-logo">
+                <img src="assets/img/logo-semiwhite_1.png" alt="Pure Life Groupe" style="height: 40px;">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="#cee" class="nav-link">Dispositif CEE</a></li>
+                <li><a href="#pro" class="nav-link">Espace Pro</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="nav-phone">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span>05 22 00 00 00</span>
+                </div>
+                <a href="#devis" class="btn-gradient">Demander un devis</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Conditions Générales d'Utilisation</h1>
+            <p>Règles d'accès et d'utilisation du site Pure Life Groupe</p>
+        </div>
+    </header>
+
+    <div class="container legal-layout">
+
+        <aside class="legal-sidebar">
+            <h3>Sommaire</h3>
+            <ul class="toc-list">
+                <li><a href="#objet" class="toc-link active">1. Objet</a></li>
+                <li><a href="#acces" class="toc-link">2. Accès au site</a></li>
+                <li><a href="#services" class="toc-link">3. Description des Services</a></li>
+                <li><a href="#responsabilite" class="toc-link">4. Responsabilité</a></li>
+                <li><a href="#propriete" class="toc-link">5. Propriété Intellectuelle</a></li>
+                <li><a href="#liens" class="toc-link">6. Liens Hypertextes</a></li>
+                <li><a href="#droit" class="toc-link">7. Droit Applicable</a></li>
+            </ul>
+        </aside>
+
+        <main class="legal-content">
+
+            <article id="objet" class="legal-article">
+                <h2><i class="ph-fill ph-scroll"></i> 1. Objet</h2>
+                <p>Les présentes Conditions Générales d'Utilisation (ci-après "CGU") ont pour objet de définir les
+                    modalités de mise à disposition des services du site <strong>Pure Life Groupe</strong> et les
+                    conditions d'utilisation par l'utilisateur.</p>
+                <p>Tout accès et/ou utilisation du site suppose l'acceptation et le respect de l'ensemble des termes des
+                    présentes conditions et leur acceptation inconditionnelle.</p>
+            </article>
+
+            <article id="acces" class="legal-article">
+                <h2><i class="ph-fill ph-lock-open"></i> 2. Accès au site</h2>
+                <p>Le site est accessible gratuitement en tout lieu à tout utilisateur ayant un accès à Internet. Tous
+                    les frais supportés par l'utilisateur pour accéder au service (matériel informatique, logiciels,
+                    connexion Internet, etc.) sont à sa charge.</p>
+                <div class="alert-box">
+                    <strong>Maintenance :</strong> Pure Life Groupe met en œuvre tous les moyens mis à sa disposition
+                    pour assurer un accès de qualité à ses services. L'obligation étant de moyens, le site ne s'engage
+                    pas à atteindre ce résultat.
+                </div>
+                <p>L'accès au site peut à tout moment faire l'objet d'une interruption, d'une suspension, d'une
+                    modification sans préavis pour une maintenance ou pour tout autre cas. L'utilisateur s'oblige à ne
+                    réclamer aucune indemnisation suite à l'interruption, à la suspension ou à la modification du
+                    présent contrat.</p>
+            </article>
+
+            <article id="services" class="legal-article">
+                <h2><i class="ph-fill ph-lightning"></i> 3. Description des Services</h2>
+                <p>Le site Pure Life Groupe a pour vocation de fournir des informations concernant les activités de
+                    rénovation énergétique, le dispositif CEE (Certificats d'Économies d'Énergie) et de proposer des
+                    outils de simulation d'éligibilité.</p>
+                <p>Les informations fournies sur le site (notamment les estimations d'aides financières) le sont à titre
+                    indicatif et ne sauraient dispenser l'utilisateur d'une analyse complémentaire et personnalisée
+                    auprès de nos experts.</p>
+            </article>
+
+            <article id="responsabilite" class="legal-article">
+                <h2><i class="ph-fill ph-warning-circle"></i> 4. Limites de Responsabilité</h2>
+                <p>Les informations diffusées sur le site Pure Life Groupe sont réputées fiables. Toutefois, le site ne
+                    garantit pas qu'il soit exempt de défauts, d'erreurs ou d'omissions.</p>
+                <p>L'utilisation des informations et contenus disponibles sur l'ensemble du site ne saurait en aucun cas
+                    engager la responsabilité de Pure Life Groupe, à quelque titre que ce soit. L'utilisateur est seul
+                    maître de la bonne utilisation, avec discernement et esprit, des informations mises à sa
+                    disposition.</p>
+            </article>
+
+            <article id="propriete" class="legal-article">
+                <h2><i class="ph-fill ph-copyright"></i> 5. Propriété Intellectuelle</h2>
+                <p>Les marques, logos, signes ainsi que tout le contenu du site (textes, images, son…) font l'objet
+                    d'une protection par le Code de la propriété intellectuelle et plus particulièrement par le droit
+                    d'auteur.</p>
+                <p>L'utilisateur doit solliciter l'autorisation préalable du site pour toute reproduction, publication,
+                    copie des différents contenus. Il s'engage à une utilisation des contenus du site dans un cadre
+                    strictement privé, toute utilisation à des fins commerciales et publicitaires est strictement
+                    interdite.</p>
+            </article>
+
+            <article id="liens" class="legal-article">
+                <h2><i class="ph-fill ph-link"></i> 6. Liens Hypertextes</h2>
+                <p>Des liens hypertextes peuvent être présents sur le site. L'utilisateur est informé qu'en cliquant sur
+                    ces liens, il sortira du site Pure Life Groupe. Ce dernier n'a pas de contrôle sur les pages web sur
+                    lesquelles aboutissent ces liens et ne saurait, en aucun cas, être responsable de leur contenu.</p>
+            </article>
+
+            <article id="droit" class="legal-article">
+                <h2><i class="ph-fill ph-gavel"></i> 7. Droit Applicable</h2>
+                <p>La législation française s'applique au présent contrat. En cas d'absence de résolution amiable d'un
+                    litige né entre les parties, les tribunaux français seront seuls compétents pour en connaître.</p>
+                <p>Pour toute question relative à l’application des présentes CGU, vous pouvez joindre l’éditeur aux
+                    coordonnées inscrites dans les Mentions Légales.</p>
+            </article>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="nav-logo" style="margin-bottom: 20px; display: inline-block;">
+                        <img src="assets/img/logo-white 2.png" alt="logo Pure Life Groupe" style="height: 50px;">
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+                        Leader de la rénovation énergétique pour les professionnels.
+                        Nous accompagnons les entreprises vers la neutralité carbone grâce à des solutions financées.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Nos Solutions</h4>
+                    <ul>
+                        <li><a href="#">Éclairage Industriel</a></li>
+                        <li><a href="#">Panneaux Solaires</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="#">Qui sommes-nous ?</a></li>
+                        <li><a href="#">Nos Réalisations</a></li>
+                        <li><a href="#">Espace Partenaire</a></li>
+                        <li><a href="#">Recrutement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-cta">
+                        <h4 style="margin-bottom: 15px;">Une question ?</h4>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="tel:0522000000" style="color: white; font-weight: 800; font-size: 1.2rem;">05 22 00
+                                00 00</a>
+                            <a href="mailto:contact@purelifegroupe.fr"
+                                style="color: var(--primary);">contact@purelifegroupe.fr</a>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
+                                38 Rue de berri, <br>75008 Paris, France
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pure Life Groupe. Tous droits réservés.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="legal.html">Mentions Légales</a>
+                    <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+                    <a href="cgu.html">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.legal-article');
+            const navLinks = document.querySelectorAll('.toc-link');
+
+            const highlightNav = () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // On active le lien quand on arrive à 200px du titre
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', highlightNav);
+        });
+    </script>
+
+</body>
+
+</html>

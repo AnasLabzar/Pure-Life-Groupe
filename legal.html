@@ -1,0 +1,422 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales | Pure Life Groupe - Rénovation Énergétique & Éclairage Pro</title>
+
+    <meta name="description"
+        content="Leader de la rénovation énergétique et éclairage LED industriel. Solutions financées à 100% par le dispositif CEE. Audit gratuit et installation RGE.">
+    <meta name="keywords"
+        content="Relamping LED, CEE, Rénovation énergétique, Éclairage industriel, RGE, Pure Life Groupe">
+    <meta name="author" content="Pure Life Groupe">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="assets/img/favicon 2.png" type="image/png">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+
+</head>
+<style>
+    /* =========================================
+           1. CORE STYLES (Ton Design System)
+           ========================================= */
+    :root {
+        --bg-body: #020617;
+        --bg-surface: #0f172a;
+        --primary: #10B981;
+        --text-main: #F8FAFC;
+        --text-muted: #94A3B8;
+        --border: rgba(255, 255, 255, 0.08);
+        --nav-height: 80px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Manrope', sans-serif;
+        background-color: var(--bg-body);
+        color: var(--text-main);
+        line-height: 1.7;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        transition: 0.3s;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* =========================================
+           2. HEADER SIMPLE
+           ========================================= */
+    .page-header {
+        padding: 140px 0 60px;
+        text-align: center;
+        background: radial-gradient(circle at top, rgba(16, 185, 129, 0.1), transparent 50%);
+    }
+
+    .page-header h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .page-header p {
+        color: var(--text-muted);
+    }
+
+    /* =========================================
+           3. LEGAL LAYOUT (Sidebar + Content)
+           ========================================= */
+    .legal-layout {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        /* Sidebar Fixe - Contenu Fluide */
+        gap: 60px;
+        margin-bottom: 100px;
+        position: relative;
+    }
+
+    /* Sidebar (Sommaire Fixe) */
+    .legal-sidebar {
+        position: sticky;
+        top: 120px;
+        /* Colle au scroll */
+        height: fit-content;
+        padding: 30px;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+    }
+
+    .legal-sidebar h3 {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-muted);
+        margin-bottom: 20px;
+    }
+
+    .toc-list li {
+        margin-bottom: 12px;
+    }
+
+    .toc-link {
+        display: block;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        padding-left: 15px;
+        border-left: 2px solid transparent;
+        cursor: pointer;
+    }
+
+    /* État Actif (JS) */
+    .toc-link:hover,
+    .toc-link.active {
+        color: var(--primary);
+        border-left-color: var(--primary);
+        font-weight: 600;
+    }
+
+    /* Contenu Principal */
+    .legal-content {
+        background: rgba(15, 23, 42, 0.4);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 50px;
+    }
+
+    .legal-article {
+        margin-bottom: 60px;
+        scroll-margin-top: 140px;
+        /* Pour que le header ne cache pas le titre */
+    }
+
+    .legal-article h2 {
+        font-size: 1.8rem;
+        color: white;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .legal-article h2 i {
+        color: var(--primary);
+        font-size: 1.5rem;
+    }
+
+    .legal-article p,
+    .legal-article ul li {
+        color: #CBD5E1;
+        margin-bottom: 15px;
+    }
+
+    .legal-article ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .info-box {
+        background: rgba(16, 185, 129, 0.05);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .legal-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .legal-sidebar {
+            display: none;
+            /* On cache le sommaire sur mobile ou on le met en haut */
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+        }
+
+        .legal-content {
+            padding: 30px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <a href="/" class="nav-logo">
+                <img src="assets/img/logo-semiwhite_1.png" alt="Pure Life Groupe" style="height: 40px;">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="#cee" class="nav-link">Dispositif CEE</a></li>
+                <li><a href="#pro" class="nav-link">Espace Pro</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="nav-phone">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span>05 22 00 00 00</span>
+                </div>
+                <a href="#devis" class="btn-gradient">Demander un devis</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Mentions Légales</h1>
+            <p>Dernière mise à jour : Février 2026</p>
+        </div>
+    </header>
+
+    <div class="container legal-layout">
+
+        <aside class="legal-sidebar">
+            <h3>Sommaire</h3>
+            <ul class="toc-list">
+                <li><a href="#editeur" class="toc-link active">1. Éditeur du site</a></li>
+                <li><a href="#hebergement" class="toc-link">2. Hébergement</a></li>
+                <li><a href="#activite" class="toc-link">3. Activité & CEE</a></li>
+                <li><a href="#donnees" class="toc-link">4. Données Personnelles</a></li>
+                <li><a href="#cookies" class="toc-link">5. Cookies</a></li>
+                <li><a href="#propriete" class="toc-link">6. Propriété Intellectuelle</a></li>
+            </ul>
+        </aside>
+
+        <main class="legal-content">
+
+            <article id="editeur" class="legal-article">
+                <h2><i class="ph-fill ph-identification-card"></i> 1. Éditeur du Site</h2>
+                <p>Conformément aux dispositions des articles 6-III et 19 de la Loi n°2004-575 pour la Confiance dans
+                    l'Économie Numérique (LCEN), nous portons à la connaissance des utilisateurs les informations
+                    suivantes concernant la société propriétaire du site :</p>
+
+                <div class="info-box">
+                    <strong>Dénomination sociale :</strong> PURE LIFE<br>
+                    <strong>Forme Juridique :</strong> SASU (Société par actions simplifiée à associé unique)<br>
+                    <strong>Capital Social :</strong> 10 000,00 €<br>
+                    <strong>SIREN :</strong> 979 760 246<br>
+                    <strong>RCS :</strong> Sarreguemines B 979 760 246<br>
+                    <strong>Siège Social :</strong> 7 Place de la Gare, 57200 Sarreguemines, France<br>
+                    <strong>Numéro TVA Intracommunautaire :</strong> FR89979760246<br>
+                    <strong>Président :</strong> M. El Mahjoub AIT BREZ
+                </div>
+                <p><strong>Contact :</strong> contact@purelifegroupe.fr | 05 22 00 00 00</p>
+            </article>
+
+            <article id="hebergement" class="legal-article">
+                <h2><i class="ph-fill ph-hard-drives"></i> 2. Hébergement</h2>
+                <p>Le site est hébergé par la société <strong>Vercel Inc.</strong> (ou OVH selon votre cas réel), dont
+                    le siège social est situé :</p>
+                <p>
+                    340 S Lemon Ave #4133<br>
+                    Walnut, CA 91789<br>
+                    États-Unis
+                </p>
+            </article>
+
+            <article id="activite" class="legal-article">
+                <h2><i class="ph-fill ph-lightbulb"></i> 3. Activité & Dispositif CEE</h2>
+                <p>Pure Life Groupe agit en qualité de mandataire administratif et financier dans le cadre du dispositif
+                    des Certificats d'Économies d'Énergie (CEE), encadré par la loi POPE.</p>
+                <p>L'entreprise est qualifiée RGE (Reconnu Garant de l'Environnement) pour les travaux de rénovation
+                    énergétique (Éclairage, Isolation, Chauffage).</p>
+            </article>
+
+            <article id="donnees" class="legal-article">
+                <h2><i class="ph-fill ph-lock-key"></i> 4. Données Personnelles (RGPD)</h2>
+                <p>En conformité avec le Règlement Général sur la Protection des Données (RGPD), Pure Life Groupe
+                    s'engage à protéger la confidentialité des informations fournies par les utilisateurs.</p>
+                <ul>
+                    <li><strong>Finalité :</strong> Les données collectées via le formulaire d'éligibilité (SIRET, Nom,
+                        Email, Téléphone) sont utilisées uniquement pour l'étude technique et la prise de contact
+                        commerciale.</li>
+                    <li><strong>Conservation :</strong> Les données sont conservées pour une durée maximale de 3 ans
+                        après le dernier contact.</li>
+                    <li><strong>Droits :</strong> Vous disposez d'un droit d'accès, de rectification et de suppression
+                        de vos données. Pour l'exercer, contactez : dpo@purelifegroupe.fr.</li>
+                </ul>
+            </article>
+
+            <article id="cookies" class="legal-article">
+                <h2><i class="ph-fill ph-cookie"></i> 5. Cookies</h2>
+                <p>La navigation sur le site est susceptible de provoquer l’installation de cookie(s) sur l’ordinateur
+                    de l’utilisateur. Un cookie est un fichier de petite taille, qui ne permet pas l’identification de
+                    l’utilisateur, mais qui enregistre des informations relatives à la navigation d’un ordinateur sur un
+                    site.</p>
+                <p>Nous utilisons principalement des cookies de mesure d'audience (Google Analytics) pour améliorer
+                    l'expérience utilisateur.</p>
+            </article>
+
+            <article id="propriete" class="legal-article">
+                <h2><i class="ph-fill ph-copyright"></i> 6. Propriété Intellectuelle</h2>
+                <p>L’ensemble de ce site relève de la législation française et internationale sur le droit d’auteur et
+                    la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les
+                    documents téléchargeables et les représentations iconographiques et photographiques.</p>
+            </article>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="nav-logo" style="margin-bottom: 20px; display: inline-block;">
+                        <img src="assets/img/logo-white 2.png" alt="logo Pure Life Groupe" style="height: 50px;">
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+                        Leader de la rénovation énergétique pour les professionnels.
+                        Nous accompagnons les entreprises vers la neutralité carbone grâce à des solutions financées.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Nos Solutions</h4>
+                    <ul>
+                        <li><a href="#">Éclairage Industriel</a></li>
+                        <li><a href="#">Panneaux Solaires</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="#">Qui sommes-nous ?</a></li>
+                        <li><a href="#">Nos Réalisations</a></li>
+                        <li><a href="#">Espace Partenaire</a></li>
+                        <li><a href="#">Recrutement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-cta">
+                        <h4 style="margin-bottom: 15px;">Une question ?</h4>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="tel:0522000000" style="color: white; font-weight: 800; font-size: 1.2rem;">05 22 00
+                                00 00</a>
+                            <a href="mailto:contact@purelifegroupe.fr"
+                                style="color: var(--primary);">contact@purelifegroupe.fr</a>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
+                                38 Rue de berri, <br>75008 Paris, France
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pure Life Groupe. Tous droits réservés.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a class="active-footer" href="legal.html">Mentions Légales</a>
+                    <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+                    <a href="cgu.html">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.legal-article');
+            const navLinks = document.querySelectorAll('.toc-link');
+
+            // Fonction pour mettre en surbrillance le lien actif
+            const highlightNav = () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // On détecte si on est dans la section (avec un offset pour le header sticky)
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', highlightNav);
+        });
+    </script>
+
+</body>
+
+</html>

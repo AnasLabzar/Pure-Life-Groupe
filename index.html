@@ -14,6 +14,8 @@
     <meta name="robots" content="index, follow">
     <link rel="icon" href="assets/img/favicon 2.png" type="image/png">
 
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
@@ -21,1180 +23,15 @@
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <style>
-        /* =========================================
-           1. VARIABLES & RESET (Thème Dark Premium)
-           ========================================= */
-        :root {
-            /* Couleurs de fond */
-            --bg-body: #020617;
-            /* Slate 950 (Noir bleuté) */
-            --bg-card: #0F172A;
-            /* Slate 900 */
-            --bg-input: #1E293B;
-            /* Slate 800 */
-            /* Couleurs Deep Dark */
-            --bg-surface: #0f172a;
-            /* Slate 900 */
-            --bg-surface-2: #1e293b;
-            /* Slate 800 */
 
-            /* Couleurs d'accentuation */
-            --primary: #10B981;
-            /* Vert Émeraude (Confiance/Écologie) */
-            --primary-hover: #059669;
-            --secondary: #3B82F6;
-            /* Bleu Tech */
-            --accent-glow: rgba(16, 185, 129, 0.2);
-
-            /* Typographie */
-            --text-main: #F8FAFC;
-            /* Blanc cassé */
-            --text-muted: #94A3B8;
-            /* Gris lisible */
-
-            /* UI Elements */
-            --border: rgba(255, 255, 255, 0.08);
-            --glass: rgba(2, 6, 23, 0.8);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 24px;
-
-            /* Layout */
-            --nav-height: 80px;
-            --container-width: 1280px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Manrope', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* Animation Reveal (Fix pour Process Section) */
-        .js-reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            /* Ease-out smooth */
-        }
-
-        .js-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Glass Card Améliorée (Pour Process & Hero) */
-        .glass-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: var(--blur);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Utilitaires */
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 100px 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .highlight {
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        /* Badges */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 50px;
-            color: var(--primary);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 24px;
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary);
-        }
-
-        /* Boutons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
-            color: white;
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
-        }
-
-        .btn-outline {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            color: white;
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-        }
-
-        /* =========================================
-           2. NAVBAR (Sticky & Glass)
-           ========================================= */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: var(--nav-height);
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            height: 70px;
-            background: rgba(2, 6, 23, 0.98);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: white;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 32px;
-        }
-
-        .nav-link {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .nav-link:hover {
-            color: white;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .nav-phone {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            line-height: 1.2;
-        }
-
-        .nav-phone span {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-phone a {
-            font-weight: 800;
-            font-size: 1.1rem;
-            color: white;
-        }
-
-        /* =========================================
-           3. HERO SECTION (Split Screen)
-           ========================================= */
-        /* =========================================
-   3. HERO SECTION (L'élément clé)
-   ========================================= */
-        .hero-section {
-            position: relative;
-            min-height: 100vh;
-            /* Plein écran */
-            padding-top: var(--nav-height);
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        /* Background Image (Entrepôt sombre) */
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
-            z-index: 0;
-        }
-
-        /* Overlay sombre pour la lisibilité */
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, #020617 20%, rgba(2, 6, 23, 0.85) 60%, rgba(2, 6, 23, 0.6) 100%);
-            z-index: 1;
-        }
-
-        .hero-grid {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            /* Texte large, Formulaire compact */
-            gap: 80px;
-            align-items: center;
-            padding: 60px 0;
-        }
-
-        /* --- PARTIE GAUCHE (TEXTE) --- */
-        .hero-content {
-            padding-right: 20px;
-        }
-
-        /* Badge "Dispositif Actif" */
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: 8px 16px;
-            border-radius: 50px;
-            color: var(--primary);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--primary);
-        }
-
-        /* Titre Impactant */
-        .hero-title {
-            font-size: 4.2rem;
-            line-height: 1.1;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .text-green {
-            color: var(--primary);
-        }
-
-        /* Le vert "Professionnel" */
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: #CBD5E1;
-            margin-bottom: 40px;
-            max-width: 600px;
-            border-left: 3px solid var(--primary);
-            padding-left: 20px;
-            /* Barre verte à gauche */
-        }
-
-        /* Boutons d'action (Call & Stats) */
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin-bottom: 50px;
-        }
-
-        .btn-call {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            padding: 16px 28px;
-            border-radius: 12px;
-            color: white;
-            font-weight: 700;
-            transition: 0.3s;
-        }
-
-        .btn-call:hover {
-            border-color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .stats-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stats-text strong {
-            font-size: 1.3rem;
-            color: white;
-        }
-
-        .stats-text span {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Trust Badges (Les boîtes en bas) */
-        .trust-row {
-            display: flex;
-            gap: 16px;
-        }
-
-        .trust-card {
-            background: #111827;
-            /* Très sombre */
-            border: 1px solid var(--border);
-            padding: 14px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-width: 160px;
-        }
-
-        .trust-card i {
-            font-size: 1.4rem;
-        }
-
-        .trust-card span {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: white;
-        }
-
-        /* --- PARTIE DROITE (FORMULAIRE WIZARD) --- */
-        .eligibility-card {
-            background: rgba(15, 23, 42, 0.6);
-            /* Glassmorphism sombre */
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-hero);
-            overflow: hidden;
-            /* Important pour le header */
-        }
-
-        /* Header Vert Vibrant (Comme screenshot) */
-        .card-header {
-            background: var(--primary);
-            /* Le vert #10B981 */
-            padding: 30px;
-            text-align: center;
-        }
-
-        .card-header h3 {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-
-        .card-header p {
-            color: #ECFDF5;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        /* Body du formulaire */
-        .card-body {
-            padding: 30px;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Étape Indicator */
-        .step-indicator {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Grille de choix (Gros boutons carrés) */
-        .grid-choices {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .choice-btn {
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 25px 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .choice-btn:hover {
-            border-color: var(--primary);
-            background: rgba(16, 185, 129, 0.08);
-            /* Vert très léger au survol */
-            transform: translateY(-3px);
-        }
-
-        .choice-btn i {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        /* Icône verte */
-        .choice-btn span {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: white;
-        }
-
-        /* Champs Input (Style Pro) */
-        .input-group {
-            margin-bottom: 16px;
-        }
-
-        .input-field {
-            width: 100%;
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px;
-            color: white;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-
-        .input-field:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
-        }
-
-        /* Bouton Submit (Gros bouton vert) */
-        .btn-submit {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 10px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
-            transition: 0.2s;
-        }
-
-        .btn-submit:hover {
-            background: #059669;
-            transform: translateY(-2px);
-        }
-
-        /* Footer Form */
-        .rgpd-text {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #64748B;
-            margin-top: 20px;
-        }
-
-        /* Responsive Mobile */
-        @media (max-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                padding-top: 20px;
-                gap: 50px;
-            }
-
-            .hero-content {
-                text-align: center;
-                padding-right: 0;
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .hero-subtitle {
-                margin: 0 auto 30px;
-                border: none;
-            }
-
-            .hero-actions {
-                justify-content: center;
-            }
-
-            .trust-row {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .nav-menu,
-            .nav-actions {
-                display: none;
-            }
-
-            /* Mobile menu simplified */
-        }
-
-        /* =========================================
-           4. FORMULAIRE WIZARD (Carte Droite)
-           ========================================= */
-        .form-card {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .form-header {
-            background: var(--primary);
-            padding: 24px 32px;
-            text-align: center;
-            color: white;
-        }
-
-        .form-header h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 4px;
-        }
-
-        .form-header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        /* Barre de progression */
-        .progress-container {
-            width: 100%;
-            height: 4px;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: #fff;
-            width: 33%;
-            transition: width 0.4s ease;
-        }
-
-        .form-body {
-            padding: 32px;
-        }
-
-        .form-step {
-            display: none;
-            /* Caché par défaut */
-            animation: fadeIn 0.4s ease;
-        }
-
-        .form-step.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .step-label {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        /* Grille d'options (Bureaux, Industrie...) */
-        .options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .option-btn {
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            padding: 20px;
-            border-radius: var(--radius-md);
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .option-btn:hover {
-            border-color: var(--primary);
-            background: rgba(16, 185, 129, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .option-btn i {
-            font-size: 2rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .option-btn:hover i {
-            color: var(--primary);
-        }
-
-        .option-btn span {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: white;
-        }
-
-        /* Inputs Texte */
-        .input-group {
-            margin-bottom: 16px;
-        }
-
-        .input-field {
-            width: 100%;
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            padding: 16px;
-            border-radius: var(--radius-sm);
-            color: white;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .input-field:focus {
-            border-color: var(--primary);
-        }
-
-        .form-footer {
-            margin-top: 24px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* =========================================
-           5. PROCESS SECTION (Glass Cards)
-           ========================================= */
-        .process-section {
-            background: linear-gradient(180deg, var(--bg-body) 0%, #060a14 100%);
-            position: relative;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .process-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 16px;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .process-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .process-num {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 3rem;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.03);
-        }
-
-        .process-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--bg-body), var(--bg-input));
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .process-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-
-        /* =========================================
-           6. STATS BAR (Animated)
-           ========================================= */
-        .stats-bar {
-            background: #000;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 60px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: white;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-item p {
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        /* =========================================
-           7. CEE SECTION (Government Style)
-           ========================================= */
-        .cee-section {
-            background: var(--bg-card);
-        }
-
-        .cee-box {
-            background: #020617;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 50px;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .cee-logos {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-            margin-top: 30px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: fit-content;
-        }
-
-        .cee-logos span {
-            color: #1e293b;
-            font-weight: 800;
-            line-height: 1.2;
-            font-size: 0.9rem;
-        }
-
-        /* =========================================
-           8. FAQ SECTION (Accordion)
-           ========================================= */
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .faq-item.active {
-            border-color: var(--primary);
-        }
-
-        .faq-header {
-            padding: 24px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .faq-header i {
-            color: var(--primary);
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-header i {
-            transform: rotate(180deg);
-        }
-
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding: 0 24px;
-        }
-
-        .faq-item.active .faq-content {
-            padding-bottom: 24px;
-        }
-
-        /* =========================================
-           9. PRIVACY & SEO STRIP
-           ========================================= */
-        .privacy-strip {
-            padding: 40px 0;
-            background: rgba(16, 185, 129, 0.05);
-            border-top: 1px solid rgba(16, 185, 129, 0.1);
-        }
-
-        .privacy-grid {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .privacy-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .privacy-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-        }
-
-        .seo-section {
-            padding: 60px 0;
-            font-size: 0.9rem;
-            color: #64748B;
-            border-top: 1px solid var(--border);
-        }
-
-        .seo-content {
-            max-height: 100px;
-            overflow: hidden;
-            position: relative;
-            transition: max-height 0.5s ease;
-        }
-
-        .seo-content.expanded {
-            max-height: 2000px;
-        }
-
-        .seo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            background: linear-gradient(to bottom, transparent, var(--bg-body));
-        }
-
-        .seo-content.expanded .seo-overlay {
-            display: none;
-        }
-
-        .seo-btn {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            margin: 20px auto 0;
-            display: block;
-        }
-
-        .seo-btn:hover {
-            border-color: var(--primary);
-            color: white;
-        }
-
-        /* =========================================
-           10. FOOTER (Mega)
-           ========================================= */
-        footer {
-            background: #000;
-            border-top: 1px solid var(--border);
-            padding-top: 80px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-            gap: 40px;
-            padding-bottom: 60px;
-        }
-
-        .footer-col h4 {
-            color: white;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-col a {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .footer-col a:hover {
-            color: var(--primary);
-        }
-
-        .footer-cta {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border);
-            padding: 24px 0;
-            color: #64748B;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* =========================================
-           11. RESPONSIVE
-           ========================================= */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 20px;
-            }
-
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-
-            .form-card {
-                max-width: 500px;
-                margin: 40px auto 0;
-            }
-
-            .nav-links,
-            .nav-actions {
-                display: none;
-            }
-
-            /* Burger menu à prévoir */
-            .hero-trust {
-                justify-content: center;
-            }
-
-            .cee-box {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
-            }
-
-            .cee-logos {
-                margin: 0 auto;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-            }
-
-            .privacy-grid {
-                flex-direction: column;
-                gap: 20px;
-                align-items: center;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-        }
-
-        /* Animations */
-        .fade-in-up {
-            animation: fadeInUp 0.8s forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .js-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-    </style>
 </head>
 
 <body>
 
     <nav class="navbar">
         <div class="container nav-wrapper">
-            <a href="#" class="nav-logo">
-                <img src="assets/img/logo-semiwhite.png" alt="Pure Life Groupe" style="height: 40px;">
+            <a href="/" class="nav-logo">
+                <img src="assets/img/logo-semiwhite_1.png" alt="Pure Life Groupe" style="height: 40px;">
             </a>
 
             <ul class="nav-menu">
@@ -1382,24 +219,52 @@
         </div>
     </section>
 
-    <div class="stats-bar" id="statsSection">
+    <div class="stats-section" id="statsSection">
         <div class="container stats-grid">
-            <div class="stat-item">
-                <h3><span class="counter" data-target="0">0</span>€</h3>
-                <p>Reste à charge</p>
+
+            <div class="stat-card highlight-card">
+                <div class="stat-icon-box">
+                    <i class="ph-fill ph-wallet"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="gradient-text">
+                        <span class="counter" data-target="0">0</span>€
+                    </h3>
+                    <p>Reste à charge</p>
+                    <span class="stat-sub">Offre 100% financée</span>
+                </div>
             </div>
-            <div class="stat-item">
-                <h3 style="color: var(--primary);">-<span class="counter" data-target="65">0</span>%</h3>
-                <p>Sur facture énergie</p>
+
+            <div class="stat-card">
+                <div class="stat-icon-box">
+                    <i class="ph-fill ph-trend-down"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>-<span class="counter" data-target="65">0</span>%</h3>
+                    <p>Facture Énergie</p>
+                </div>
             </div>
-            <div class="stat-item">
-                <h3><span class="counter" data-target="25">0</span> ans</h3>
-                <p>Durée de vie</p>
+
+            <div class="stat-card">
+                <div class="stat-icon-box">
+                    <i class="ph-fill ph-hourglass-high"></i>
+                </div>
+                <div class="stat-content">
+                    <h3><span class="counter" data-target="25">0</span> Ans</h3>
+                    <p>Durée de vie LED</p>
+                </div>
             </div>
-            <div class="stat-item">
-                <h3><span class="counter" data-target="4300">0</span>+</h3>
-                <p>Chantiers réalisés</p>
+
+            <div class="stat-card">
+                <div class="stat-icon-box">
+                    <i class="ph-fill ph-buildings"></i>
+                </div>
+                <div class="stat-content">
+                    <h3><span class="counter" data-target="4300">0</span>+</h3>
+                    <p>Chantiers Réalisés</p>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -1416,9 +281,15 @@
                         Ce n'est pas une subvention aléatoire, c'est un <strong>droit</strong> pour les professionnels.
                     </p>
                     <div class="cee-logos">
-                        <span>RÉPUBLIQUE<br>FRANÇAISE</span>
-                        <span style="color: var(--primary);">France<br>Rénov'</span>
-                        <span style="color: var(--secondary);">Agir pour<br>la transition</span>
+                        <div class="logo-card">
+                            <img src="assets/img/republique-francaise.png" alt="République Française">
+                        </div>
+                        <div class="logo-card">
+                            <img src="assets/img/transition-ecologique.png" alt="Transition Écologique">
+                        </div>
+                        <div class="logo-card">
+                            <img src="assets/img/agir-transition.png" alt="Agir pour la transition">
+                        </div>
                     </div>
                 </div>
                 <div style="flex: 1; border-left: 1px solid var(--border); padding-left: 40px;">
@@ -1549,7 +420,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="#" class="nav-logo" style="margin-bottom: 20px; display: inline-block;">PURE LIFE</a>
+                    <a href="/" class="nav-logo" style="margin-bottom: 20px; display: inline-block;">
+                        <img src="assets/img/logo-white 2.png" alt="logo Pure Life Groupe" style="height: 50px;">
+                    </a>
                     <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
                         Leader de la rénovation énergétique pour les professionnels.
                         Nous accompagnons les entreprises vers la neutralité carbone grâce à des solutions financées.
@@ -1561,8 +434,6 @@
                     <ul>
                         <li><a href="#">Éclairage Industriel</a></li>
                         <li><a href="#">Panneaux Solaires</a></li>
-                        <li><a href="#">Isolation Thermique</a></li>
-                        <li><a href="#">Pompes à Chaleur</a></li>
                     </ul>
                 </div>
 
@@ -1582,10 +453,10 @@
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <a href="tel:0522000000" style="color: white; font-weight: 800; font-size: 1.2rem;">05 22 00
                                 00 00</a>
-                            <a href="mailto:contact@purelifegroupe.ma"
-                                style="color: var(--primary);">contact@purelifegroupe.ma</a>
+                            <a href="mailto:contact@purelifegroupe.fr"
+                                style="color: var(--primary);">contact@purelifegroupe.fr</a>
                             <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
-                                Immeuble Zenith, Sidi Maarouf<br>20230 Casablanca, Maroc
+                                38 Rue de berri, <br>75008 Paris, France
                             </p>
                         </div>
                     </div>
@@ -1595,9 +466,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Pure Life Groupe. Tous droits réservés.</p>
                 <div style="display: flex; gap: 20px;">
-                    <a href="#">Mentions Légales</a>
-                    <a href="#">Politique de Confidentialité</a>
-                    <a href="#">CGU</a>
+                    <a href="legal.html">Mentions Légales</a>
+                    <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+                    <a href="cgu">CGU</a>
                 </div>
             </div>
         </div>
@@ -1736,7 +607,56 @@
                 }
             };
 
+
+
         });
+    </script>
+
+    <script>
+        /* --- ANIMATION STATS DYNAMIQUE --- */
+        const statsSection = document.getElementById('statsSection');
+        let statsAnimated = false;
+
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                // Trigger seulement quand on voit la section
+                if (entries[0].isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+
+                    document.querySelectorAll('.counter').forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+
+                        // Cas spécial pour 0€ (Effet Pulse au lieu de compter)
+                        if (target === 0) {
+                            counter.innerText = "0";
+                            // Petit effet visuel pour attirer l'attention
+                            counter.style.transition = "transform 0.5s";
+                            counter.style.transform = "scale(1.5)";
+                            setTimeout(() => counter.style.transform = "scale(1)", 500);
+                            return;
+                        }
+
+                        // Pour les autres chiffres (Compteur classique)
+                        const speed = 2000; // Durée 2 secondes
+                        const inc = target / (speed / 20); // Vitesse
+                        let count = 0;
+
+                        const updateCount = () => {
+                            count += inc;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count);
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                }
+            }, { threshold: 0.2 }); // Déclenche quand 20% de la section est visible
+
+            statsObserver.observe(statsSection);
+        }
     </script>
 
 </body>
