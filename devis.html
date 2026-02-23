@@ -20,6 +20,12 @@
         rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <script>
+        // Mettez votre code Google Tag Manager ou Pixel Facebook ici
+        // Cela permet de tracker les visites sur la page Devis
+        console.log("Tracking initialisé pour la récolte de Data");
+    </script>
+
     <style>
         /* =========================================
            1. CORE DESIGN SYSTEM & VARIABLES
@@ -72,17 +78,21 @@
             list-style: none;
         }
 
+        /* CONTAINERS FIXÉS POUR ALIGNEMENT PARFAIT */
         .container {
-            max-width: 1000px;
+            max-width: 1280px;
+            /* Retour à 1280px comme sur index.html */
             margin: 0 auto;
             padding: 0 24px;
             width: 100%;
         }
 
-        .container-full {
-            max-width: 1280px;
+        .form-container {
+            max-width: 900px;
+            /* Container spécial pour le formulaire (plus étroit) */
             margin: 0 auto;
             padding: 0 24px;
+            width: 100%;
         }
 
         .section-padding {
@@ -90,7 +100,7 @@
         }
 
         /* =========================================
-           2. NAVBAR (COMPLÈTE)
+           2. NAVBAR (ALIGNEE AVEC INDEX.HTML)
            ========================================= */
         .navbar {
             padding: 0;
@@ -101,6 +111,13 @@
             top: 0;
             z-index: 1000;
             height: var(--nav-height);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(2, 6, 23, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            height: 70px;
         }
 
         .nav-wrapper {
@@ -111,12 +128,8 @@
         }
 
         .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: white;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         .nav-menu {
@@ -176,6 +189,22 @@
             color: white;
         }
 
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
         /* =========================================
            3. FORM HEADER & PROGRESS BAR
            ========================================= */
@@ -191,7 +220,7 @@
         }
 
         .form-header p {
-            color: var(--text-muted);
+            color: #ececec;
             font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto;
@@ -283,7 +312,7 @@
         }
 
         /* =========================================
-           4. WIZARD FORM & INPUTS (ADVANCED)
+           4. WIZARD FORM & INPUTS
            ========================================= */
         .wizard-container {
             background: rgba(15, 23, 42, 0.7);
@@ -382,7 +411,6 @@
             padding-right: 45px;
         }
 
-        /* Radio Cards (Advanced) */
         .radio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -489,18 +517,6 @@
             color: var(--warning);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .error-msg-global {
             color: var(--danger);
             font-size: 0.9rem;
@@ -513,7 +529,6 @@
             border-radius: 8px;
         }
 
-        /* Form Buttons */
         .form-actions {
             display: flex;
             justify-content: space-between;
@@ -560,7 +575,7 @@
         }
 
         /* =========================================
-           6. PRIVACY STRIP, FAQ & FOOTER (RESTORED)
+           6. PRIVACY STRIP & FOOTER (ALIGNE)
            ========================================= */
         .privacy-strip {
             padding: 50px 0;
@@ -593,51 +608,6 @@
             justify-content: center;
             color: var(--primary);
             font-size: 1.5rem;
-        }
-
-        .faq-item {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .faq-item.active {
-            border-color: var(--primary);
-        }
-
-        .faq-header {
-            padding: 24px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: white;
-        }
-
-        .faq-header i {
-            color: var(--primary);
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-header i {
-            transform: rotate(180deg);
-        }
-
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding: 0 24px;
-            color: var(--text-muted);
-        }
-
-        .faq-item.active .faq-content {
-            padding-bottom: 24px;
         }
 
         footer {
@@ -720,10 +690,9 @@
             </a>
 
             <ul class="nav-menu">
-                <li><a href="#solutions" class="nav-link">Solutions</a></li>
-                <li><a href="#cee" class="nav-link">Dispositif CEE</a></li>
-                <li><a href="#pro" class="nav-link">Espace Pro</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="index.html#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="index.html#cee" class="nav-link">Dispositif CEE</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -731,20 +700,18 @@
                     <i class="ph-fill ph-phone-call"></i>
                     <span>05 22 00 00 00</span>
                 </div>
-                <a href="#devis" class="btn-gradient">Demander un devis</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="form-container">
+
         <div class="form-header">
             <h1>Audit d'Éligibilité CEE Avancé</h1>
             <p>Renseignez les caractéristiques techniques de votre bâtiment pour une estimation précise de vos primes et
                 économies, sans aucun engagement.</p>
         </div>
-    </div>
 
-    <div class="container">
         <div class="progress-wrapper">
             <div class="progress-steps">
                 <div class="progress-bar-bg">
@@ -769,7 +736,13 @@
             </div>
         </div>
 
-        <form id="advancedQuoteForm" class="wizard-container" novalidate>
+        <form id="advancedQuoteForm" class="wizard-container" novalidate
+            onsubmit="event.preventDefault(); submitFinalForm();">
+
+            <input type="hidden" name="utm_source" id="utm_source" value="">
+            <input type="hidden" name="utm_medium" id="utm_medium" value="">
+            <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+            <input type="hidden" name="page_referrer" id="page_referrer" value="">
 
             <div class="form-step active" id="step1">
                 <h2 class="step-title"><i class="ph-fill ph-buildings"></i> Informations de l'entreprise</h2>
@@ -777,18 +750,20 @@
                 <div class="input-grid">
                     <div class="input-group">
                         <label>Raison Sociale *</label>
-                        <input type="text" class="input-field required-1" placeholder="Ex: Logistique Express">
+                        <input type="text" class="input-field required-1" name="raison_sociale"
+                            placeholder="Ex: Logistique Express">
                     </div>
                     <div class="input-group">
                         <label>Numéro SIRET *</label>
-                        <input type="text" class="input-field required-1" placeholder="14 chiffres" maxlength="14">
+                        <input type="text" class="input-field required-1" name="siret" placeholder="14 chiffres"
+                            maxlength="14">
                     </div>
                 </div>
 
                 <div class="input-grid">
                     <div class="input-group">
                         <label>Secteur d'activité *</label>
-                        <select class="input-field required-1">
+                        <select class="input-field required-1" name="secteur">
                             <option value="" disabled selected>Choisissez un secteur</option>
                             <option value="industrie">Industrie / Usine</option>
                             <option value="logistique">Logistique / Entrepôt</option>
@@ -799,7 +774,7 @@
                     </div>
                     <div class="input-group">
                         <label>Statut vis-à-vis du bâtiment *</label>
-                        <select class="input-field required-1" id="statut_batiment">
+                        <select class="input-field required-1" id="statut_batiment" name="statut">
                             <option value="" disabled selected>Votre statut</option>
                             <option value="proprietaire">Propriétaire</option>
                             <option value="locataire">Locataire</option>
@@ -810,7 +785,7 @@
                 <div class="dynamic-alert alert-info" id="alert-locataire">
                     <i class="ph-fill ph-info"></i>
                     <div><strong>Note pour les locataires :</strong> Le dispositif CEE nécessite l'accord écrit de votre
-                        propriétaire pour réaliser les travaux. Nous vous fournirons le modèle d'autorisation.</div>
+                        propriétaire. Nous vous fournirons le modèle d'autorisation.</div>
                 </div>
 
                 <div class="error-msg-global" id="error-1"><i class="ph-bold ph-warning-circle"></i> Veuillez remplir
@@ -828,11 +803,12 @@
                 <div class="input-grid">
                     <div class="input-group">
                         <label>Surface totale à éclairer (m²) *</label>
-                        <input type="number" class="input-field required-2" id="surface_site" placeholder="Ex: 2500">
+                        <input type="number" class="input-field required-2" id="surface_site" name="surface"
+                            placeholder="Ex: 2500">
                     </div>
                     <div class="input-group">
                         <label>Hauteur sous plafond moyenne (m) *</label>
-                        <input type="number" class="input-field required-2" placeholder="Ex: 8">
+                        <input type="number" class="input-field required-2" name="hauteur" placeholder="Ex: 8">
                     </div>
                 </div>
 
@@ -845,7 +821,7 @@
                 <div class="input-grid">
                     <div class="input-group">
                         <label>Année de construction du bâtiment *</label>
-                        <select class="input-field required-2" id="annee_construction">
+                        <select class="input-field required-2" id="annee_construction" name="annee_construction">
                             <option value="" disabled selected>Sélectionnez</option>
                             <option value="plus_2_ans">Il y a plus de 2 ans</option>
                             <option value="moins_2_ans">Il y a moins de 2 ans (Neuf)</option>
@@ -853,7 +829,7 @@
                     </div>
                     <div class="input-group">
                         <label>Heures d'exploitation annuelles *</label>
-                        <select class="input-field required-2">
+                        <select class="input-field required-2" name="heures_exploitation">
                             <option value="" disabled selected>Estimation</option>
                             <option value="1x8">1x8 (Env. 2000h/an)</option>
                             <option value="2x8">2x8 (Env. 4000h/an)</option>
@@ -865,7 +841,7 @@
                 <div class="dynamic-alert alert-warning" id="alert-annee">
                     <i class="ph-fill ph-warning"></i>
                     <div><strong>Attention :</strong> Les primes CEE sont réservées aux bâtiments achevés depuis plus de
-                        2 ans. Vous pouvez tout de même obtenir un devis classique non-subventionné.</div>
+                        2 ans. Vous pouvez tout de même obtenir un devis classique.</div>
                 </div>
 
                 <div class="error-msg-global" id="error-2"><i class="ph-bold ph-warning-circle"></i> Veuillez remplir
@@ -912,13 +888,14 @@
                 <div class="input-grid">
                     <div class="input-group">
                         <label>Nombre de luminaires à remplacer *</label>
-                        <input type="number" class="input-field required-3" placeholder="Estimation (ex: 150)">
+                        <input type="number" class="input-field required-3" name="nombre_luminaires"
+                            placeholder="Estimation (ex: 150)">
                     </div>
                     <div class="input-group">
                         <label>Option d'optimisation (Optionnel)</label>
-                        <select class="input-field">
+                        <select class="input-field" name="optimisation">
                             <option value="standard">Remplacement Simple (1 pour 1)</option>
-                            <option value="dali">Gestion Intelligente (DALI / Variation)</option>
+                            <option value="dali">Gestion Intelligente (DALI)</option>
                             <option value="detecteur">Détecteurs de présence intégrés</option>
                         </select>
                     </div>
@@ -941,49 +918,49 @@
                 <div class="input-grid">
                     <div class="input-group">
                         <label>Prénom & Nom *</label>
-                        <input type="text" class="input-field required-4" placeholder="Votre nom complet">
+                        <input type="text" class="input-field required-4" name="nom" placeholder="Votre nom complet">
                     </div>
                     <div class="input-group">
                         <label>Fonction *</label>
-                        <input type="text" class="input-field required-4"
-                            placeholder="Ex: Directeur Technique, Gérant...">
+                        <input type="text" class="input-field required-4" name="fonction"
+                            placeholder="Ex: Directeur Technique">
                     </div>
                     <div class="input-group">
                         <label>Email Professionnel *</label>
-                        <input type="email" class="input-field required-4" placeholder="email@votre-entreprise.com">
+                        <input type="email" class="input-field required-4" name="email"
+                            placeholder="email@votre-entreprise.com">
                     </div>
                     <div class="input-group">
                         <label>Téléphone Ligne Directe *</label>
-                        <input type="tel" class="input-field required-4" placeholder="06 XX XX XX XX">
+                        <input type="tel" class="input-field required-4" name="telephone" placeholder="06 XX XX XX XX">
                     </div>
                 </div>
 
                 <label
                     style="display: flex; gap: 15px; align-items: flex-start; cursor: pointer; color: var(--text-muted); font-size: 0.9rem; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px;">
-                    <input type="checkbox" class="required-4" style="margin-top: 5px; transform: scale(1.3);">
-                    <span>J'accepte que les informations saisies soient exploitées par Pure Life Groupe dans le cadre
-                        exclusif de ma demande d'audit CEE. Je reconnais avoir pris connaissance de la <a
-                            href="politique-confidentialite.html"
+                    <input type="checkbox" class="required-4" name="rgpd"
+                        style="margin-top: 5px; transform: scale(1.3);">
+                    <span>J'accepte que les informations saisies soient exploitées par Pure Life Groupe. Je reconnais
+                        avoir pris connaissance de la <a href="politique-confidentialite.html"
                             style="color:var(--primary); text-decoration: underline;">politique de confidentialité</a>.
                         *</span>
                 </label>
 
                 <div class="error-msg-global" id="error-4" style="margin-top: 20px;"><i
-                        class="ph-bold ph-warning-circle"></i> Veuillez remplir tous les champs et accepter la politique
-                    de confidentialité.</div>
+                        class="ph-bold ph-warning-circle"></i> Veuillez remplir tous les champs et accepter la
+                    politique.</div>
 
                 <div class="form-actions">
                     <button type="button" class="btn btn-prev" onclick="goToStep(3)"><i
                             class="ph-bold ph-arrow-left"></i> Retour</button>
-                    <button type="button" class="btn btn-next" onclick="submitFinalForm()">Soumettre le dossier <i
+                    <button type="submit" class="btn btn-next" id="submitBtn">Soumettre le dossier <i
                             class="ph-bold ph-paper-plane-right"></i></button>
                 </div>
             </div>
         </form>
     </div>
-
     <section class="privacy-strip">
-        <div class="container-full privacy-grid">
+        <div class="container privacy-grid">
             <div class="privacy-item">
                 <div class="privacy-icon"><i class="ph-fill ph-lock-key"></i></div>
                 <div>
@@ -1008,44 +985,6 @@
         </div>
     </section>
 
-    <section id="faq" class="section-padding">
-        <div class="container" style="max-width: 800px;">
-            <div class="text-center" style="margin-bottom: 4rem;">
-                <h2 style="font-size: 2.2rem; color: white; margin-bottom: 15px;">Questions Fréquentes</h2>
-                <p style="color: var(--text-muted);">Informations sur le traitement de votre demande</p>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-header">Quand vais-je recevoir mon devis ?<i class="ph-bold ph-caret-down"></i>
-                    </div>
-                    <div class="faq-content">
-                        <p>Après soumission de ce formulaire, notre bureau d'études analyse vos données. Un expert vous
-                            contacte sous 24 à 48h ouvrées pour vous présenter la simulation financière et planifier
-                            l'audit sur site si nécessaire.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header">L'étude d'éligibilité est-elle vraiment gratuite ?<i
-                            class="ph-bold ph-caret-down"></i></div>
-                    <div class="faq-content">
-                        <p>Oui, l'étude complète, incluant l'analyse DIALux et le montage financier CEE, est entièrement
-                            prise en charge par Pure Life Groupe. Vous ne vous engagez à rien avant la signature du
-                            devis définitif.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-header">Que se passe-t-il avec mes données SIRET ?<i
-                            class="ph-bold ph-caret-down"></i></div>
-                    <div class="faq-content">
-                        <p>Le SIRET est une donnée publique obligatoire qui nous permet de vérifier l'existence
-                            juridique de votre entreprise et son éligibilité (code NAF) auprès du Pôle National des CEE.
-                            Vos données sont sécurisées.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1054,8 +993,8 @@
                         <img src="assets/img/logo-white 2.png" alt="logo Pure Life Groupe" style="height: 50px;">
                     </a>
                     <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
-                        Leader de la rénovation énergétique pour les professionnels.
-                        Nous accompagnons les entreprises vers la neutralité carbone grâce à des solutions financées.
+                        Leader de la rénovation énergétique pour les professionnels. Nous accompagnons les entreprises
+                        vers la neutralité carbone grâce à des solutions financées.
                     </p>
                 </div>
 
@@ -1073,7 +1012,6 @@
                         <li><a href="about.html">Qui sommes-nous ?</a></li>
                         <li><a href="#">Nos Réalisations</a></li>
                         <li><a href="#">Espace Partenaire</a></li>
-                        <li><a href="#">Recrutement</a></li>
                     </ul>
                 </div>
 
@@ -1085,9 +1023,6 @@
                                 00 00</a>
                             <a href="mailto:contact@purelifegroupe.fr"
                                 style="color: var(--primary);">contact@purelifegroupe.fr</a>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
-                                38 Rue de berri, <br>75008 Paris, France
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -1098,100 +1033,233 @@
                 <div style="display: flex; gap: 20px;">
                     <a href="legal.html">Mentions Légales</a>
                     <a href="politique-confidentialite.html">Politique de Confidentialité</a>
-                    <a href="cgu">CGU</a>
+                    <a href="cgu.html">CGU</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        const totalSteps = 4;
-        const progressFill = document.getElementById('progressFill');
+        document.addEventListener('DOMContentLoaded', () => {
 
-        /* --- 1. DYNAMIC ALERTS --- */
-        document.getElementById('statut_batiment').addEventListener('change', function () {
-            document.getElementById('alert-locataire').style.display = (this.value === 'locataire') ? 'flex' : 'none';
-        });
+            /* --- 0. DATA TRACKING (UTM & Referrer) --- */
+            // Ce script permet de tracker d'où vient l'utilisateur (Google Ads, Facebook, etc.)
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('utm_source').value = urlParams.get('utm_source') || 'direct';
+            document.getElementById('utm_medium').value = urlParams.get('utm_medium') || '';
+            document.getElementById('utm_campaign').value = urlParams.get('utm_campaign') || '';
+            document.getElementById('page_referrer').value = document.referrer || 'direct';
 
-        document.getElementById('surface_site').addEventListener('input', function () {
-            document.getElementById('alert-surface').style.display = (this.value >= 1000) ? 'flex' : 'none';
-        });
+            /* --- 1. NAVBAR SCROLL --- */
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            });
 
-        document.getElementById('annee_construction').addEventListener('change', function () {
-            document.getElementById('alert-annee').style.display = (this.value === 'moins_2_ans') ? 'flex' : 'none';
-        });
+            /* --- 2. DYNAMIC ALERTS --- */
+            const alertLocataire = document.getElementById('alert-locataire');
+            document.getElementById('statut_batiment').addEventListener('change', function () {
+                alertLocataire.style.display = (this.value === 'locataire') ? 'flex' : 'none';
+            });
 
-        /* --- 2. VALIDATION ET NAVIGATION WIZARD --- */
-        window.validateAndNext = function (currentStep, nextStepNum) {
-            let isValid = true;
-            const inputs = document.querySelectorAll('.required-' + currentStep);
-            const errorMsg = document.getElementById('error-' + currentStep);
+            const alertSurface = document.getElementById('alert-surface');
+            document.getElementById('surface_site').addEventListener('input', function () {
+                alertSurface.style.display = (this.value >= 1000) ? 'flex' : 'none';
+            });
 
-            inputs.forEach(input => {
-                if (input.type === 'checkbox') {
-                    if (!input.checked) { isValid = false; input.classList.add('input-error'); }
-                    else { input.classList.remove('input-error'); }
+            const alertAnnee = document.getElementById('alert-annee');
+            document.getElementById('annee_construction').addEventListener('change', function () {
+                alertAnnee.style.display = (this.value === 'moins_2_ans') ? 'flex' : 'none';
+            });
+
+            /* --- 3. VALIDATION ET NAVIGATION WIZARD --- */
+            const totalSteps = 4;
+            const progressFill = document.getElementById('progressFill');
+
+            window.validateAndNext = function (currentStep, nextStepNum) {
+                let isValid = true;
+                const inputs = document.querySelectorAll('.required-' + currentStep);
+                const errorMsg = document.getElementById('error-' + currentStep);
+
+                inputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        if (!input.checked) { isValid = false; input.classList.add('input-error'); }
+                        else { input.classList.remove('input-error'); }
+                    } else {
+                        if (input.value.trim() === '') { isValid = false; input.classList.add('input-error'); }
+                        else { input.classList.remove('input-error'); }
+                    }
+                });
+
+                inputs.forEach(input => {
+                    input.addEventListener('input', () => input.classList.remove('input-error'));
+                    input.addEventListener('change', () => input.classList.remove('input-error'));
+                });
+
+                if (isValid) {
+                    errorMsg.style.display = 'none';
+                    goToStep(nextStepNum);
                 } else {
-                    if (input.value.trim() === '') { isValid = false; input.classList.add('input-error'); }
-                    else { input.classList.remove('input-error'); }
+                    errorMsg.style.display = 'block';
                 }
-            });
+            };
 
-            inputs.forEach(input => {
-                input.addEventListener('input', () => input.classList.remove('input-error'));
-                input.addEventListener('change', () => input.classList.remove('input-error'));
-            });
+            window.goToStep = function (step) {
+                document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+                document.getElementById('step' + step).classList.add('active');
 
-            if (isValid) {
-                errorMsg.style.display = 'none';
-                goToStep(nextStepNum);
-            } else {
-                errorMsg.style.display = 'block';
-            }
-        };
+                const percentage = ((step - 1) / (totalSteps - 1)) * 100;
+                progressFill.style.width = percentage + '%';
 
-        window.goToStep = function (step) {
-            document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
-            document.getElementById('step' + step).classList.add('active');
-
-            const percentage = ((step - 1) / (totalSteps - 1)) * 100;
-            progressFill.style.width = percentage + '%';
-
-            for (let i = 1; i <= totalSteps; i++) {
-                const indicator = document.getElementById('indicator-' + i);
-                if (i < step) {
-                    indicator.classList.add('completed');
-                    indicator.classList.remove('active');
-                    indicator.querySelector('.step-num').innerHTML = '<i class="ph-bold ph-check"></i>';
-                } else if (i === step) {
-                    indicator.classList.add('active');
-                    indicator.classList.remove('completed');
-                    indicator.querySelector('.step-num').innerHTML = i;
-                } else {
-                    indicator.classList.remove('active', 'completed');
-                    indicator.querySelector('.step-num').innerHTML = i;
+                for (let i = 1; i <= totalSteps; i++) {
+                    const indicator = document.getElementById('indicator-' + i);
+                    if (i < step) {
+                        indicator.classList.add('completed');
+                        indicator.classList.remove('active');
+                        indicator.querySelector('.step-num').innerHTML = '<i class="ph-bold ph-check"></i>';
+                    } else if (i === step) {
+                        indicator.classList.add('active');
+                        indicator.classList.remove('completed');
+                        indicator.querySelector('.step-num').innerHTML = i;
+                    } else {
+                        indicator.classList.remove('active', 'completed');
+                        indicator.querySelector('.step-num').innerHTML = i;
+                    }
                 }
-            }
-            window.scrollTo({ top: 100, behavior: 'smooth' });
-        };
+                window.scrollTo({ top: 100, behavior: 'smooth' });
+            };
 
-        /* --- 3. SUBMISSION (SUCCESS VIEW) --- */
-        window.submitFinalForm = function () {
-            let isValid = true;
-            document.querySelectorAll('.required-4').forEach(input => {
-                if ((input.type === 'checkbox' && !input.checked) || (input.type !== 'checkbox' && input.value.trim() === '')) {
-                    isValid = false; input.classList.add('input-error');
-                }
-            });
+            /* --- 4. SUBMISSION (SUCCESS VIEW) --- */
+            window.submitFinalForm = function () {
+                let isValid = true;
+                document.querySelectorAll('.required-4').forEach(input => {
+                    if ((input.type === 'checkbox' && !input.checked) || (input.type !== 'checkbox' && input.value.trim() === '')) {
+                        isValid = false; input.classList.add('input-error');
+                    }
+                });
 
-            if (!isValid) { document.getElementById('error-4').style.display = 'block'; return; }
+                if (!isValid) { document.getElementById('error-4').style.display = 'block'; return; }
 
-            const btn = document.querySelector('#step4 .btn-next');
-            btn.innerHTML = '<i class="ph-bold ph-spinner ph-spin"></i> Traitement sécurisé...';
-            btn.style.opacity = '0.8';
-            btn.style.pointerEvents = 'none';
+                const btn = document.querySelector('#step4 .btn-next');
+                btn.innerHTML = '<i class="ph-bold ph-spinner ph-spin"></i> Traitement sécurisé...';
+                btn.style.opacity = '0.8';
+                btn.style.pointerEvents = 'none';
 
-            setTimeout(() => {
+                setTimeout(() => {
+                    document.getElementById('advancedQuoteForm').innerHTML = `
+                        <div style="text-align: center; padding: 60px 20px;">
+                            <div style="width: 80px; height: 80px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px;">
+                                <i class="ph-bold ph-check" style="font-size: 2.5rem; color: var(--primary);"></i>
+                            </div>
+                            <h2 style="font-size: 2.2rem; margin-bottom: 15px; color: white;">Demande envoyée avec succès !</h2>
+                            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 550px; margin: 0 auto 35px;">
+                                Notre bureau d'études a bien reçu vos données techniques. Un expert CEE vous contactera sous 24h ouvrées pour vous présenter votre simulation d'aides.
+                            </p>
+                            <a href="index.html" class="btn btn-next" style="padding: 16px 40px;">Retour à l'accueil</a>
+                        </div>
+                    `;
+                    progressFill.style.width = '100%';
+                    document.getElementById('indicator-4').classList.add('completed');
+                    document.getElementById('indicator-4').classList.remove('active');
+                    document.getElementById('indicator-4').querySelector('.step-num').innerHTML = '<i class="ph-bold ph-check"></i>';
+                }, 1800);
+            };
+
+            /* --- 4. SUBMISSION (RECOLTE DATA + EMAIL/WHATSAPP) --- */
+            window.submitFinalForm = function () {
+
+                // 1. VALIDATION DE L'ÉTAPE 4
+                let isValid = true;
+                document.querySelectorAll('.required-4').forEach(input => {
+                    if ((input.type === 'checkbox' && !input.checked) || (input.type !== 'checkbox' && input.value.trim() === '')) {
+                        isValid = false; input.classList.add('input-error');
+                    }
+                });
+
+                if (!isValid) { document.getElementById('error-4').style.display = 'block'; return; }
+
+                const btn = document.querySelector('#step4 .btn-next');
+                btn.innerHTML = '<i class="ph-bold ph-spinner ph-spin"></i> Envoi en cours...';
+                btn.style.opacity = '0.8';
+                btn.style.pointerEvents = 'none';
+
+                // 2. RÉCUPÉRATION DE TOUTES LES DONNÉES DU FORMULAIRE
+                const formElement = document.getElementById('advancedQuoteForm');
+                const formData = new FormData(formElement);
+                const data = Object.fromEntries(formData.entries());
+
+                // ========================================================
+                // CHOIX 1 : ENVOI PAR WHATSAPP (Décommente pour utiliser)
+                // ========================================================
+                /*
+                let messageWa = `*🚨 NOUVEAU LEAD CEE : ${data.raison_sociale}*\n\n`;
+                messageWa += `*🏢 ENTREPRISE*\n- SIRET : ${data.siret}\n- Secteur : ${data.secteur}\n- Statut : ${data.statut}\n\n`;
+                messageWa += `*🏭 LE SITE*\n- Surface : ${data.surface} m²\n- Hauteur plafond : ${data.hauteur} m\n- Année : ${data.annee_construction}\n- Heures/an : ${data.heures_exploitation}\n\n`;
+                messageWa += `*💡 ÉCLAIRAGE*\n- Technologie : ${data.lighting_tech}\n- Quantité : ${data.nombre_luminaires}\n- Option : ${data.optimisation}\n\n`;
+                messageWa += `*👤 CONTACT*\n- Nom : ${data.nom} (${data.fonction})\n- Email : ${data.email}\n- Tél : ${data.telephone}\n\n`;
+                messageWa += `*📊 TRACKING*\n- Source : ${data.utm_source}\n- Page : ${data.page_referrer}`;
+
+                const numeroWhatsApp = "212600000000"; // <-- METS TON NUMÉRO ICI (Code pays sans le '+')
+                const urlWa = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(messageWa)}`;
+                
+                window.open(urlWa, '_blank'); // Ouvre l'application WhatsApp
+                afficherPageSucces(); // Affiche la belle page verte de succès
+                */
+
+
+                // ========================================================
+                // CHOIX 2 : ENVOI PAR EMAIL (SANS BACKEND via FormSubmit)
+                // ========================================================
+
+                const emailDeReception = "contact@purelifegroupe.fr"; // <-- METS TON EMAIL ICI
+
+                // Préparation des données pour l'email
+                const payload = {
+                    _subject: "🔥 Nouveau Lead CEE : " + data.raison_sociale,
+                    _template: "table", // Format tableau sympa dans le mail
+                    Entreprise: data.raison_sociale,
+                    SIRET: data.siret,
+                    Secteur: data.secteur,
+                    Statut_Batiment: data.statut,
+                    Surface_m2: data.surface,
+                    Hauteur_m: data.hauteur,
+                    Annee_Construction: data.annee_construction,
+                    Heures_Allumage: data.heures_exploitation,
+                    Technologie_Actuelle: data.lighting_tech,
+                    Nombre_Luminaires: data.nombre_luminaires,
+                    Option_Demandee: data.optimisation,
+                    Contact_Nom: data.nom,
+                    Contact_Fonction: data.fonction,
+                    Contact_Email: data.email,
+                    Contact_Telephone: data.telephone,
+                    Tracking_Source: data.utm_source,
+                    URL_Referrer: data.page_referrer
+                };
+
+                fetch(`https://formsubmit.co/ajax/${emailDeReception}`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                })
+                    .then(response => response.json())
+                    .then(result => {
+                        afficherPageSucces(); // Si l'email est envoyé, on affiche le succès
+                    })
+                    .catch(error => {
+                        console.error("Erreur", error);
+                        alert("Une erreur est survenue. Veuillez réessayer.");
+                        btn.innerHTML = 'Soumettre le dossier <i class="ph-bold ph-paper-plane-right"></i>';
+                        btn.style.opacity = '1';
+                        btn.style.pointerEvents = 'auto';
+                    });
+            };
+
+            // Fonction pour afficher la page de succès UI (gardée intacte)
+            function afficherPageSucces() {
                 document.getElementById('advancedQuoteForm').innerHTML = `
                     <div style="text-align: center; padding: 60px 20px;">
                         <div style="width: 80px; height: 80px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px;">
@@ -1208,23 +1276,7 @@
                 document.getElementById('indicator-4').classList.add('completed');
                 document.getElementById('indicator-4').classList.remove('active');
                 document.getElementById('indicator-4').querySelector('.step-num').innerHTML = '<i class="ph-bold ph-check"></i>';
-            }, 1800);
-        };
-
-        /* --- 4. ACCORDEON FAQ --- */
-        document.querySelectorAll('.faq-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const content = item.querySelector('.faq-content');
-                item.classList.toggle('active');
-                if (item.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    header.querySelector('i').style.transform = "rotate(180deg)";
-                } else {
-                    content.style.maxHeight = null;
-                    header.querySelector('i').style.transform = "rotate(0deg)";
-                }
-            });
+            }
         });
     </script>
 </body>
