@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande d'Audit et Devis CEE | Pure Life Groupe</title>
+
+    <meta name="description"
+        content="Leader de la rénovation énergétique et éclairage LED industriel. Solutions financées à 100% par le dispositif CEE. Audit gratuit et installation RGE.">
+    <meta name="keywords"
+        content="Relamping LED, CEE, Rénovation énergétique, Éclairage industriel, RGE, Pure Life Groupe">
+    <meta name="author" content="Pure Life Groupe">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="assets/img/favicon 2.png" type="image/png">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* =========================================
+           1. CORE DESIGN SYSTEM & VARIABLES
+           ========================================= */
+        :root {
+            --bg-body: #020617;
+            --bg-surface: #0f172a;
+            --bg-input: #1e293b;
+            --primary: #10B981;
+            --primary-hover: #059669;
+            --warning: #F59E0B;
+            --info: #3B82F6;
+            --danger: #EF4444;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-focus: rgba(16, 185, 129, 0.5);
+            --nav-height: 80px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.05), transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .container-full {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* =========================================
+           2. NAVBAR (COMPLÈTE)
+           ========================================= */
+        .navbar {
+            padding: 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-phone {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            line-height: 1.2;
+        }
+
+        .nav-phone span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .nav-phone a {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        /* =========================================
+           3. FORM HEADER & PROGRESS BAR
+           ========================================= */
+        .form-header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .form-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .form-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .progress-wrapper {
+            background: var(--bg-surface);
+            padding: 25px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .progress-bar-bg {
+            position: absolute;
+            top: 15px;
+            left: 12.5%;
+            width: 75%;
+            height: 3px;
+            background: var(--border);
+            z-index: 1;
+            border-radius: 2px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.4s ease;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 2;
+            width: 25%;
+        }
+
+        .step-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .step-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-item.active .step-num {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .step-item.active .step-text {
+            color: white;
+        }
+
+        .step-item.completed .step-num {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* =========================================
+           4. WIZARD FORM & INPUTS (ADVANCED)
+           ========================================= */
+        .wizard-container {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 80px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-step {
+            display: none;
+            animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-title {
+            font-size: 1.6rem;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+        }
+
+        .step-title i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .input-field {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 12px;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .input-field:focus {
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+            outline: none;
+        }
+
+        .input-error {
+            border-color: var(--danger) !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+        }
+
+        select.input-field {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 18px;
+            padding-right: 45px;
+        }
+
+        /* Radio Cards (Advanced) */
+        .radio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .radio-card {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .radio-card input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .card-content {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-content i {
+            font-size: 2.2rem;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+
+        .card-content span {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: white;
+        }
+
+        .radio-card input:checked+.card-content {
+            border-color: var(--primary);
+            background: rgba(16, 185, 129, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .radio-card input:checked+.card-content i {
+            color: var(--primary);
+        }
+
+        /* =========================================
+           5. DYNAMIC ALERTS
+           ========================================= */
+        .dynamic-alert {
+            display: none;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: -10px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            animation: fadeIn 0.4s ease;
+            line-height: 1.5;
+        }
+
+        .dynamic-alert i {
+            font-size: 1.5rem;
+            margin-top: 2px;
+        }
+
+        .alert-info {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #93C5FD;
+        }
+
+        .alert-info i {
+            color: var(--info);
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #6EE7B7;
+        }
+
+        .alert-success i {
+            color: var(--primary);
+        }
+
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #FCD34D;
+        }
+
+        .alert-warning i {
+            color: var(--warning);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-msg-global {
+            color: var(--danger);
+            font-size: 0.9rem;
+            display: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: right;
+            padding: 10px;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Form Buttons */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-prev {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        .btn-prev:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+
+        .btn-next {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-next:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        /* =========================================
+           6. PRIVACY STRIP, FAQ & FOOTER (RESTORED)
+           ========================================= */
+        .privacy-strip {
+            padding: 50px 0;
+            background: rgba(16, 185, 129, 0.03);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .privacy-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .privacy-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .privacy-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+        }
+
+        .faq-header {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .faq-header i {
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-header i {
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 24px;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-content {
+            padding-bottom: 24px;
+        }
+
+        footer {
+            background: #000;
+            padding-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .footer-cta {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            color: #64748B;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 900px) {
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-text {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .privacy-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .nav-menu,
+            .nav-actions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <a href="/" class="nav-logo">
+                <img src="assets/img/logo-semiwhite_1.png" alt="Pure Life Groupe" style="height: 40px;">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="#cee" class="nav-link">Dispositif CEE</a></li>
+                <li><a href="#pro" class="nav-link">Espace Pro</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="nav-phone">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span>05 22 00 00 00</span>
+                </div>
+                <a href="#devis" class="btn-gradient">Demander un devis</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-header">
+            <h1>Audit d'Éligibilité CEE Avancé</h1>
+            <p>Renseignez les caractéristiques techniques de votre bâtiment pour une estimation précise de vos primes et
+                économies, sans aucun engagement.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="progress-wrapper">
+            <div class="progress-steps">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressFill"></div>
+                </div>
+                <div class="step-item active" id="indicator-1">
+                    <div class="step-num">1</div>
+                    <div class="step-text">Entreprise</div>
+                </div>
+                <div class="step-item" id="indicator-2">
+                    <div class="step-num">2</div>
+                    <div class="step-text">Le Site</div>
+                </div>
+                <div class="step-item" id="indicator-3">
+                    <div class="step-num">3</div>
+                    <div class="step-text">Éclairage</div>
+                </div>
+                <div class="step-item" id="indicator-4">
+                    <div class="step-num">4</div>
+                    <div class="step-text">Contact</div>
+                </div>
+            </div>
+        </div>
+
+        <form id="advancedQuoteForm" class="wizard-container" novalidate>
+
+            <div class="form-step active" id="step1">
+                <h2 class="step-title"><i class="ph-fill ph-buildings"></i> Informations de l'entreprise</h2>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Raison Sociale *</label>
+                        <input type="text" class="input-field required-1" placeholder="Ex: Logistique Express">
+                    </div>
+                    <div class="input-group">
+                        <label>Numéro SIRET *</label>
+                        <input type="text" class="input-field required-1" placeholder="14 chiffres" maxlength="14">
+                    </div>
+                </div>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Secteur d'activité *</label>
+                        <select class="input-field required-1">
+                            <option value="" disabled selected>Choisissez un secteur</option>
+                            <option value="industrie">Industrie / Usine</option>
+                            <option value="logistique">Logistique / Entrepôt</option>
+                            <option value="grande_distri">Grande Distribution / GMS</option>
+                            <option value="tertiaire">Bureaux / Tertiaire</option>
+                            <option value="parking">Parking Souterrain</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Statut vis-à-vis du bâtiment *</label>
+                        <select class="input-field required-1" id="statut_batiment">
+                            <option value="" disabled selected>Votre statut</option>
+                            <option value="proprietaire">Propriétaire</option>
+                            <option value="locataire">Locataire</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dynamic-alert alert-info" id="alert-locataire">
+                    <i class="ph-fill ph-info"></i>
+                    <div><strong>Note pour les locataires :</strong> Le dispositif CEE nécessite l'accord écrit de votre
+                        propriétaire pour réaliser les travaux. Nous vous fournirons le modèle d'autorisation.</div>
+                </div>
+
+                <div class="error-msg-global" id="error-1"><i class="ph-bold ph-warning-circle"></i> Veuillez remplir
+                    tous les champs obligatoires (*).</div>
+
+                <div class="form-actions" style="justify-content: flex-end;">
+                    <button type="button" class="btn btn-next" onclick="validateAndNext(1, 2)">Suivant <i
+                            class="ph-bold ph-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="form-step" id="step2">
+                <h2 class="step-title"><i class="ph-fill ph-blueprint"></i> Caractéristiques du site</h2>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Surface totale à éclairer (m²) *</label>
+                        <input type="number" class="input-field required-2" id="surface_site" placeholder="Ex: 2500">
+                    </div>
+                    <div class="input-group">
+                        <label>Hauteur sous plafond moyenne (m) *</label>
+                        <input type="number" class="input-field required-2" placeholder="Ex: 8">
+                    </div>
+                </div>
+
+                <div class="dynamic-alert alert-success" id="alert-surface">
+                    <i class="ph-fill ph-check-circle"></i>
+                    <div><strong>Excellente nouvelle !</strong> Pour une surface supérieure à 1000m², le financement CEE
+                        couvre généralement 100% du matériel LED et de l'installation.</div>
+                </div>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Année de construction du bâtiment *</label>
+                        <select class="input-field required-2" id="annee_construction">
+                            <option value="" disabled selected>Sélectionnez</option>
+                            <option value="plus_2_ans">Il y a plus de 2 ans</option>
+                            <option value="moins_2_ans">Il y a moins de 2 ans (Neuf)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Heures d'exploitation annuelles *</label>
+                        <select class="input-field required-2">
+                            <option value="" disabled selected>Estimation</option>
+                            <option value="1x8">1x8 (Env. 2000h/an)</option>
+                            <option value="2x8">2x8 (Env. 4000h/an)</option>
+                            <option value="3x8">3x8 (Env. 6000h/an - 24/24)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dynamic-alert alert-warning" id="alert-annee">
+                    <i class="ph-fill ph-warning"></i>
+                    <div><strong>Attention :</strong> Les primes CEE sont réservées aux bâtiments achevés depuis plus de
+                        2 ans. Vous pouvez tout de même obtenir un devis classique non-subventionné.</div>
+                </div>
+
+                <div class="error-msg-global" id="error-2"><i class="ph-bold ph-warning-circle"></i> Veuillez remplir
+                    tous les champs obligatoires (*).</div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-prev" onclick="goToStep(1)"><i
+                            class="ph-bold ph-arrow-left"></i> Retour</button>
+                    <button type="button" class="btn btn-next" onclick="validateAndNext(2, 3)">Suivant <i
+                            class="ph-bold ph-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="form-step" id="step3">
+                <h2 class="step-title"><i class="ph-fill ph-lightbulb-filament"></i> L'équipement existant</h2>
+
+                <div class="input-group">
+                    <label>Quelle technologie équipe majoritairement votre site ? *</label>
+                </div>
+                <div class="radio-grid">
+                    <label class="radio-card">
+                        <input type="radio" name="lighting_tech" value="fluo" checked>
+                        <div class="card-content">
+                            <i class="ph ph-cylinder"></i>
+                            <span>Tubes Néon (T8/T5)</span>
+                        </div>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="lighting_tech" value="sodium">
+                        <div class="card-content">
+                            <i class="ph ph-lamp"></i>
+                            <span>Sodium / Mercure</span>
+                        </div>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="lighting_tech" value="mixte">
+                        <div class="card-content">
+                            <i class="ph ph-intersect"></i>
+                            <span>Mixte / Halogène</span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Nombre de luminaires à remplacer *</label>
+                        <input type="number" class="input-field required-3" placeholder="Estimation (ex: 150)">
+                    </div>
+                    <div class="input-group">
+                        <label>Option d'optimisation (Optionnel)</label>
+                        <select class="input-field">
+                            <option value="standard">Remplacement Simple (1 pour 1)</option>
+                            <option value="dali">Gestion Intelligente (DALI / Variation)</option>
+                            <option value="detecteur">Détecteurs de présence intégrés</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="error-msg-global" id="error-3"><i class="ph-bold ph-warning-circle"></i> Veuillez remplir
+                    tous les champs obligatoires (*).</div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-prev" onclick="goToStep(2)"><i
+                            class="ph-bold ph-arrow-left"></i> Retour</button>
+                    <button type="button" class="btn btn-next" onclick="validateAndNext(3, 4)">Suivant <i
+                            class="ph-bold ph-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="form-step" id="step4">
+                <h2 class="step-title"><i class="ph-fill ph-user-circle-gear"></i> Responsable du projet</h2>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Prénom & Nom *</label>
+                        <input type="text" class="input-field required-4" placeholder="Votre nom complet">
+                    </div>
+                    <div class="input-group">
+                        <label>Fonction *</label>
+                        <input type="text" class="input-field required-4"
+                            placeholder="Ex: Directeur Technique, Gérant...">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Professionnel *</label>
+                        <input type="email" class="input-field required-4" placeholder="email@votre-entreprise.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Téléphone Ligne Directe *</label>
+                        <input type="tel" class="input-field required-4" placeholder="06 XX XX XX XX">
+                    </div>
+                </div>
+
+                <label
+                    style="display: flex; gap: 15px; align-items: flex-start; cursor: pointer; color: var(--text-muted); font-size: 0.9rem; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px;">
+                    <input type="checkbox" class="required-4" style="margin-top: 5px; transform: scale(1.3);">
+                    <span>J'accepte que les informations saisies soient exploitées par Pure Life Groupe dans le cadre
+                        exclusif de ma demande d'audit CEE. Je reconnais avoir pris connaissance de la <a
+                            href="politique-confidentialite.html"
+                            style="color:var(--primary); text-decoration: underline;">politique de confidentialité</a>.
+                        *</span>
+                </label>
+
+                <div class="error-msg-global" id="error-4" style="margin-top: 20px;"><i
+                        class="ph-bold ph-warning-circle"></i> Veuillez remplir tous les champs et accepter la politique
+                    de confidentialité.</div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-prev" onclick="goToStep(3)"><i
+                            class="ph-bold ph-arrow-left"></i> Retour</button>
+                    <button type="button" class="btn btn-next" onclick="submitFinalForm()">Soumettre le dossier <i
+                            class="ph-bold ph-paper-plane-right"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <section class="privacy-strip">
+        <div class="container-full privacy-grid">
+            <div class="privacy-item">
+                <div class="privacy-icon"><i class="ph-fill ph-lock-key"></i></div>
+                <div>
+                    <h4 style="color: white; font-size: 0.95rem; margin-bottom: 2px;">Données Cryptées</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Protocole SSL 256-bit</p>
+                </div>
+            </div>
+            <div class="privacy-item">
+                <div class="privacy-icon"><i class="ph-fill ph-shield-check"></i></div>
+                <div>
+                    <h4 style="color: white; font-size: 0.95rem; margin-bottom: 2px;">Conformité RGPD</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Respect strict de la vie privée</p>
+                </div>
+            </div>
+            <div class="privacy-item">
+                <div class="privacy-icon"><i class="ph-fill ph-file-text"></i></div>
+                <div>
+                    <h4 style="color: white; font-size: 0.95rem; margin-bottom: 2px;">Devis Sans Engagement</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Étude technique 100% gratuite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding">
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <h2 style="font-size: 2.2rem; color: white; margin-bottom: 15px;">Questions Fréquentes</h2>
+                <p style="color: var(--text-muted);">Informations sur le traitement de votre demande</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-header">Quand vais-je recevoir mon devis ?<i class="ph-bold ph-caret-down"></i>
+                    </div>
+                    <div class="faq-content">
+                        <p>Après soumission de ce formulaire, notre bureau d'études analyse vos données. Un expert vous
+                            contacte sous 24 à 48h ouvrées pour vous présenter la simulation financière et planifier
+                            l'audit sur site si nécessaire.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">L'étude d'éligibilité est-elle vraiment gratuite ?<i
+                            class="ph-bold ph-caret-down"></i></div>
+                    <div class="faq-content">
+                        <p>Oui, l'étude complète, incluant l'analyse DIALux et le montage financier CEE, est entièrement
+                            prise en charge par Pure Life Groupe. Vous ne vous engagez à rien avant la signature du
+                            devis définitif.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header">Que se passe-t-il avec mes données SIRET ?<i
+                            class="ph-bold ph-caret-down"></i></div>
+                    <div class="faq-content">
+                        <p>Le SIRET est une donnée publique obligatoire qui nous permet de vérifier l'existence
+                            juridique de votre entreprise et son éligibilité (code NAF) auprès du Pôle National des CEE.
+                            Vos données sont sécurisées.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="nav-logo" style="margin-bottom: 20px; display: inline-block;">
+                        <img src="assets/img/logo-white 2.png" alt="logo Pure Life Groupe" style="height: 50px;">
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+                        Leader de la rénovation énergétique pour les professionnels.
+                        Nous accompagnons les entreprises vers la neutralité carbone grâce à des solutions financées.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Nos Solutions</h4>
+                    <ul>
+                        <li><a href="#">Éclairage Industriel</a></li>
+                        <li><a href="#">Panneaux Solaires</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="about.html">Qui sommes-nous ?</a></li>
+                        <li><a href="#">Nos Réalisations</a></li>
+                        <li><a href="#">Espace Partenaire</a></li>
+                        <li><a href="#">Recrutement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-cta">
+                        <h4 style="margin-bottom: 15px;">Une question ?</h4>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="tel:0522000000" style="color: white; font-weight: 800; font-size: 1.2rem;">05 22 00
+                                00 00</a>
+                            <a href="mailto:contact@purelifegroupe.fr"
+                                style="color: var(--primary);">contact@purelifegroupe.fr</a>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
+                                38 Rue de berri, <br>75008 Paris, France
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pure Life Groupe. Tous droits réservés.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="legal.html">Mentions Légales</a>
+                    <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+                    <a href="cgu">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const totalSteps = 4;
+        const progressFill = document.getElementById('progressFill');
+
+        /* --- 1. DYNAMIC ALERTS --- */
+        document.getElementById('statut_batiment').addEventListener('change', function () {
+            document.getElementById('alert-locataire').style.display = (this.value === 'locataire') ? 'flex' : 'none';
+        });
+
+        document.getElementById('surface_site').addEventListener('input', function () {
+            document.getElementById('alert-surface').style.display = (this.value >= 1000) ? 'flex' : 'none';
+        });
+
+        document.getElementById('annee_construction').addEventListener('change', function () {
+            document.getElementById('alert-annee').style.display = (this.value === 'moins_2_ans') ? 'flex' : 'none';
+        });
+
+        /* --- 2. VALIDATION ET NAVIGATION WIZARD --- */
+        window.validateAndNext = function (currentStep, nextStepNum) {
+            let isValid = true;
+            const inputs = document.querySelectorAll('.required-' + currentStep);
+            const errorMsg = document.getElementById('error-' + currentStep);
+
+            inputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    if (!input.checked) { isValid = false; input.classList.add('input-error'); }
+                    else { input.classList.remove('input-error'); }
+                } else {
+                    if (input.value.trim() === '') { isValid = false; input.classList.add('input-error'); }
+                    else { input.classList.remove('input-error'); }
+                }
+            });
+
+            inputs.forEach(input => {
+                input.addEventListener('input', () => input.classList.remove('input-error'));
+                input.addEventListener('change', () => input.classList.remove('input-error'));
+            });
+
+            if (isValid) {
+                errorMsg.style.display = 'none';
+                goToStep(nextStepNum);
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        };
+
+        window.goToStep = function (step) {
+            document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+
+            const percentage = ((step - 1) / (totalSteps - 1)) * 100;
+            progressFill.style.width = percentage + '%';
+
+            for (let i = 1; i <= totalSteps; i++) {
+                const indicator = document.getElementById('indicator-' + i);
+                if (i < step) {
+                    indicator.classList.add('completed');
+                    indicator.classList.remove('active');
+                    indicator.querySelector('.step-num').innerHTML = '<i class="ph-bold ph-check"></i>';
+                } else if (i === step) {
+                    indicator.classList.add('active');
+                    indicator.classList.remove('completed');
+                    indicator.querySelector('.step-num').innerHTML = i;
+                } else {
+                    indicator.classList.remove('active', 'completed');
+                    indicator.querySelector('.step-num').innerHTML = i;
+                }
+            }
+            window.scrollTo({ top: 100, behavior: 'smooth' });
+        };
+
+        /* --- 3. SUBMISSION (SUCCESS VIEW) --- */
+        window.submitFinalForm = function () {
+            let isValid = true;
+            document.querySelectorAll('.required-4').forEach(input => {
+                if ((input.type === 'checkbox' && !input.checked) || (input.type !== 'checkbox' && input.value.trim() === '')) {
+                    isValid = false; input.classList.add('input-error');
+                }
+            });
+
+            if (!isValid) { document.getElementById('error-4').style.display = 'block'; return; }
+
+            const btn = document.querySelector('#step4 .btn-next');
+            btn.innerHTML = '<i class="ph-bold ph-spinner ph-spin"></i> Traitement sécurisé...';
+            btn.style.opacity = '0.8';
+            btn.style.pointerEvents = 'none';
+
+            setTimeout(() => {
+                document.getElementById('advancedQuoteForm').innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <div style="width: 80px; height: 80px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px;">
+                            <i class="ph-bold ph-check" style="font-size: 2.5rem; color: var(--primary);"></i>
+                        </div>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 15px; color: white;">Demande envoyée avec succès !</h2>
+                        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 550px; margin: 0 auto 35px;">
+                            Notre bureau d'études a bien reçu vos données techniques. Un expert CEE vous contactera sous 24h ouvrées pour vous présenter votre simulation d'aides.
+                        </p>
+                        <a href="index.html" class="btn btn-next" style="padding: 16px 40px;">Retour à l'accueil</a>
+                    </div>
+                `;
+                progressFill.style.width = '100%';
+                document.getElementById('indicator-4').classList.add('completed');
+                document.getElementById('indicator-4').classList.remove('active');
+                document.getElementById('indicator-4').querySelector('.step-num').innerHTML = '<i class="ph-bold ph-check"></i>';
+            }, 1800);
+        };
+
+        /* --- 4. ACCORDEON FAQ --- */
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const content = item.querySelector('.faq-content');
+                item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    header.querySelector('i').style.transform = "rotate(180deg)";
+                } else {
+                    content.style.maxHeight = null;
+                    header.querySelector('i').style.transform = "rotate(0deg)";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
