@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éclairage LED Industriel | Solutions | Pure Life Groupe</title>
+
+    <meta name="description"
+        content="Modernisez l'éclairage de votre industrie ou entrepôt avec nos solutions LED intelligentes. Financement à 100% via les primes CEE.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="assets/img/favicon 2.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* =========================================
+           1. CORE DESIGN SYSTEM & VARIABLES
+           ========================================= */
+        :root {
+            --bg-body: #020617;
+            --bg-surface: #0f172a;
+            --bg-input: #1e293b;
+            --primary: #10B981;
+            --primary-hover: #059669;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border: rgba(255, 255, 255, 0.08);
+            --nav-height: 80px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 40%);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50px;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        /* =========================================
+           2. NAVBAR (IDENTIQUE AU TEMPLATE)
+           ========================================= */
+        .navbar {
+            padding: 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: var(--nav-height);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(2, 6, 23, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            height: 70px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-phone {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            line-height: 1.2;
+        }
+
+        .nav-phone span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .nav-phone a {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        /* =========================================
+           3. HERO SOLUTION
+           ========================================= */
+        .solution-hero {
+            padding: 180px 0 100px;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1586528116311-ad8ed74512c1?auto=format&fit=crop&q=80&w=2000') center/cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #020617 30%, rgba(2, 6, 23, 0.85) 70%, rgba(2, 6, 23, 0.4) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #CBD5E1;
+            margin-bottom: 40px;
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+        }
+
+        /* =========================================
+           4. KEY BENEFITS (BENTO GRID)
+           ========================================= */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: var(--transition);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
+        .glass-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .glass-card h3 {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .glass-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           5. TECHNICAL DETAILS SECTION
+           ========================================= */
+        .tech-section {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tech-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tech-item {
+            display: flex;
+            gap: 15px;
+            background: var(--bg-body);
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            align-items: flex-start;
+        }
+
+        .tech-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .tech-item h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .tech-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* =========================================
+           6. CEE BOX (FINANCEMENT)
+           ========================================= */
+        .cee-box {
+            background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+            border: 1px solid var(--primary);
+            border-radius: 24px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
+        }
+
+        .cee-box::before {
+            content: '';
+            position: absolute;
+            right: -100px;
+            top: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Animations */
+        .js-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .js-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                margin-top: 40px;
+            }
+
+            .tech-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .cee-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-menu,
+            .nav-actions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <a href="/" class="nav-logo">
+                <img src="assets/img/logo-semiwhite_1.png" alt="Pure Life Groupe" style="height: 40px;">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="index.html#cee" class="nav-link">Dispositif CEE</a></li>
+                <li><a href="realisations.html" class="nav-link">Réalisations</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="nav-phone">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span>05 22 00 00 00</span>
+                </div>
+                <a href="devis.html" class="btn-gradient">Demander un devis</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="solution-hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="badge js-reveal"><i class="ph-bold ph-lightning"></i> Éclairage Industriel</span>
+            <h1 class="js-reveal" style="transition-delay: 0.1s;">Passez à la LED.<br><span
+                    style="color: var(--primary);">Divisez par 3</span> votre facture.</h1>
+            <p class="js-reveal" style="transition-delay: 0.2s;">Conçu pour les environnements exigeants (Usines,
+                Entrepôts, Logistique). Un éclairage sur-mesure, intelligent, et entièrement financé par l'État.</p>
+            <div class="js-reveal" style="transition-delay: 0.3s; display: flex; gap: 15px;">
+                <a href="devis.html" class="btn-gradient" style="padding: 16px 32px; font-size: 1.1rem;">Test
+                    d'Éligibilité CEE</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="margin-bottom: 100px;">
+        <div class="benefits-grid">
+            <div class="glass-card js-reveal" style="transition-delay: 0.4s;">
+                <i class="ph-fill ph-trend-down"></i>
+                <h3>Économies Massives</h3>
+                <p>La technologie LED industrielle réduit votre consommation d'éclairage jusqu'à 75% par rapport aux
+                    anciennes cloches sodium ou tubes fluorescents.</p>
+            </div>
+            <div class="glass-card js-reveal" style="transition-delay: 0.5s;">
+                <i class="ph-fill ph-eye"></i>
+                <h3>Confort Visuel (UGR)</h3>
+                <p>Améliorez la productivité et la sécurité de vos équipes grâce à un éclairage homogène, sans
+                    scintillement, respectant la norme EN 12464-1.</p>
+            </div>
+            <div class="glass-card js-reveal" style="transition-delay: 0.6s;">
+                <i class="ph-fill ph-shield-check"></i>
+                <h3>Zéro Maintenance</h3>
+                <p>Nos luminaires professionnels ont une durée de vie garantie de 50 000 heures (L80B10), éliminant les
+                    coûts de remplacement fréquents en grande hauteur.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-section section-padding">
+        <div class="container tech-layout">
+            <div class="js-reveal">
+                <span class="badge"
+                    style="background: transparent; border-color: var(--border); color: white;">Expertise RGE</span>
+                <h2 style="font-size: 2.5rem; color: white; margin-bottom: 20px; line-height: 1.2;">La technologie au
+                    service de <span style="color: var(--primary);">votre performance.</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Chaque site industriel est unique. C'est
+                    pourquoi notre bureau d'études réalise une simulation photométrique 3D (DIALux) avant chaque
+                    chantier pour garantir le niveau d'éclairement parfait.</p>
+
+                <div class="tech-list">
+                    <div class="tech-item">
+                        <div class="tech-icon"><i class="ph-bold ph-wifi-high"></i></div>
+                        <div>
+                            <h4>Smart Lighting & DALI</h4>
+                            <p>Intégration de détecteurs de présence et de luminosité pour graduer l'éclairage
+                                automatiquement. N'éclairez que là où c'est nécessaire.</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon"><i class="ph-bold ph-drop"></i></div>
+                        <div>
+                            <h4>Résistance Extrême (IP65 / IK08)</h4>
+                            <p>Des armatures étanches à la poussière et à l'eau, conçues pour résister aux chocs et aux
+                                températures extrêmes (-30°C à +50°C).</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon"><i class="ph-bold ph-recycle"></i></div>
+                        <div>
+                            <h4>Rendement Supérieur</h4>
+                            <p>Nous utilisons des puces LED de dernière génération générant un flux lumineux supérieur à
+                                140 lumens par Watt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="js-reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4ce5eb92815?auto=format&fit=crop&q=80&w=1000"
+                    alt="Audit Technique Éclairage" style="box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="cee-box js-reveal">
+                <div style="position: relative; z-index: 2;">
+                    <div class="badge" style="background: white; color: #020617; border: none;">Financement 100%</div>
+                    <h2 style="font-size: 2.2rem; color: white; margin-bottom: 15px;">Votre installation payée par
+                        l'État.</h2>
+                    <p style="color: #CBD5E1; font-size: 1.1rem; max-width: 600px; margin-bottom: 25px;">
+                        Grâce au dispositif des Certificats d'Économies d'Énergie (fiche BAT-EQ-127), Pure Life Groupe
+                        prend en charge l'intégralité du matériel et de la main d'œuvre. <strong
+                            style="color: white;">Vous ne sortez aucune trésorerie.</strong>
+                    </p>
+                    <ul
+                        style="color: var(--primary); display: flex; flex-direction: column; gap: 10px; font-weight: 600; margin-bottom: 30px;">
+                        <li><i class="ph-bold ph-check"></i> Sans avance de frais</li>
+                        <li><i class="ph-bold ph-check"></i> Sans impact sur votre capacité d'endettement</li>
+                        <li><i class="ph-bold ph-check"></i> Gestion administrative 100% déléguée</li>
+                    </ul>
+                    <a href="devis.html" class="btn-gradient">Calculer ma prime CEE</a>
+                </div>
+                <div style="position: relative; z-index: 2; text-align: center;">
+                    <img src="assets/img/republique-francaise.png" alt="République Française"
+                        style="width: 150px; background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                    <p style="color: var(--text-muted); font-size: 0.8rem;">Mandataire RGE Agréé</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="nav-logo" style="margin-bottom: 20px; display: inline-block;">
+                        <img src="assets/img/logo-white 2.png" alt="logo Pure Life Groupe" style="height: 50px;">
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+                        Leader de la rénovation énergétique pour les professionnels.
+                        Nous accompagnons les entreprises vers la neutralité carbone grâce à des solutions financées.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Nos Solutions</h4>
+                    <ul>
+                        <li><a href="eclairage-industriel.html">Éclairage Industriel</a></li>
+                        <li><a href="solutions-solaire.html">Panneaux Solaires</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="about.html">Qui sommes-nous ?</a></li>
+                        <li><a href="realisations.html">Nos Réalisations</a></li>
+                        <li><a href="partenaires.html">Espace Partenaire</a></li>
+                        <li><a href="recrutement.html">Recrutement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-cta">
+                        <h4 style="margin-bottom: 15px;">Une question ?</h4>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="tel:0522000000" style="color: white; font-weight: 800; font-size: 1.2rem;">05 22 00
+                                00 00</a>
+                            <a href="mailto:contact@purelifegroupe.fr"
+                                style="color: var(--primary);">contact@purelifegroupe.fr</a>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
+                                38 Rue de berri, <br>75008 Paris, France
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pure Life Groupe. Tous droits réservés.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="legal.html">Mentions Légales</a>
+                    <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+                    <a href="cgu">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Navbar
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            });
+
+            // Reveal Animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.js-reveal').forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Réalisations | Pure Life Groupe | Relamping & CEE</title>
+
+    <meta name="description"
+        content="Découvrez les projets de rénovation énergétique et de relamping LED réalisés par Pure Life Groupe. Des usines et entrepôts modernisés et financés à 100%.">
+    <meta name="keywords"
+        content="Réalisations, Projets, Relamping LED, CEE, Rénovation énergétique, Éclairage industriel">
+    <meta name="author" content="Pure Life Groupe">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="assets/img/favicon 2.png" type="image/png">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --bg-body: #020617;
+            --bg-surface: #0f172a;
+            --primary: #10B981;
+            --border: rgba(255, 255, 255, 0.08);
+            --text-muted: #94A3B8;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Hero Réalisations */
+        .portfolio-hero {
+            padding: 160px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.1), transparent 60%);
+        }
+
+        .portfolio-hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filtres (Boutons) */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #020617;
+        }
+
+        /* Grid des Projets */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        /* Carte Projet (Glassmorphism & Hover Reveal) */
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+            display: block;
+            /* S'assure que l'animation de filtrage marche */
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Image du projet */
+        .project-img {
+            width: 100%;
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.08);
+        }
+
+        /* Badge sur l'image */
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            z-index: 2;
+        }
+
+        /* Contenu de la carte */
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-title {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Statistiques du projet (Mini Bento) */
+        .project-stats {
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .stat-item {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .stat-item span {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-item small {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Animation pour le filtre JS */
+        .hide-project {
+            display: none !important;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body class="portfolio-page">
+
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <a href="/" class="nav-logo">
+                <img src="assets/img/logo-semiwhite_1.png" alt="Pure Life Groupe" style="height: 40px;">
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="#cee" class="nav-link">Dispositif CEE</a></li>
+                <li><a href="#pro" class="nav-link">Espace Pro</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="nav-phone">
+                    <i class="ph-fill ph-phone-call"></i>
+                    <span>05 22 00 00 00</span>
+                </div>
+                <a href="devis.html" class="btn-gradient">Demander un devis</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="portfolio-hero">
+        <div class="container">
+            <span class="badge"
+                style="background: rgba(16, 185, 129, 0.1); color: var(--primary); padding: 8px 16px; border-radius: 50px; font-weight: bold; border: 1px solid var(--primary); margin-bottom: 15px; display: inline-block;">Nos
+                Succès</span>
+            <h1>Ils nous ont fait <span style="color: var(--primary);">confiance</span></h1>
+            <p>Découvrez comment nous avons transformé les infrastructures de nos clients tout en réduisant leur facture
+                énergétique à zéro frais.</p>
+        </div>
+    </section>
+
+    <section class="container">
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Tous les projets</button>
+            <button class="filter-btn" data-filter="logistique">Logistique</button>
+            <button class="filter-btn" data-filter="industrie">Industrie</button>
+            <button class="filter-btn" data-filter="tertiaire">Bureaux / Tertiaire</button>
+        </div>
+
+        <div class="portfolio-grid">
+
+            <div class="project-card logistique fade-in">
+                <div class="project-img">
+                    <span class="project-badge">Logistique</span>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8ed74512c1?auto=format&fit=crop&q=80&w=800"
+                        alt="Entrepôt Logistique LED">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Plateforme Logistique X-Press</h3>
+                    <p class="project-desc">Remplacement de 450 cloches sodium par des armatures LED intelligentes avec
+                        détecteurs de présence DALI.</p>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span>-72%</span>
+                            <small>Conso. Énergie</small>
+                        </div>
+                        <div class="stat-item">
+                            <span>15 k€</span>
+                            <small>Économie / an</small>
+                        </div>
+                        <div class="stat-item">
+                            <span>100%</span>
+                            <small>Financé CEE</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card industrie fade-in">
+                <div class="project-img">
+                    <span class="project-badge">Industrie</span>
+                    <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&q=80&w=800"
+                        alt="Usine de production">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Usine Métallurgique Sud</h3>
+                    <p class="project-desc">Modernisation complète de l'éclairage des lignes de production. Amélioration
+                        du confort visuel (UGR < 19).</p>
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <span>800</span>
+                                    <small>Tubes LED</small>
+                                </div>
+                                <div class="stat-item">
+                                    <span>+40%</span>
+                                    <small>Luminosité (Lux)</small>
+                                </div>
+                                <div class="stat-item">
+                                    <span>100%</span>
+                                    <small>Financé CEE</small>
+                                </div>
+                            </div>
+                </div>
+            </div>
+
+            <div class="project-card tertiaire fade-in">
+                <div class="project-img">
+                    <span class="project-badge">Tertiaire</span>
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+                        alt="Bureaux Open Space">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Siège Social TechCorp</h3>
+                    <p class="project-desc">Rénovation de 3 étages d'open-space avec des dalles LED anti-éblouissement.
+                        Installation réalisée en week-end.</p>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span>-55%</span>
+                            <small>Conso. Énergie</small>
+                        </div>
+                        <div class="stat-item">
+                            <span>48h</span>
+                            <small>Temps de pose</small>
+                        </div>
+                        <div class="stat-item">
+                            <span>0€</span>
+                            <small>Reste à charge</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card logistique fade-in">
+                <div class="project-img">
+                    <span class="project-badge">Logistique</span>
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800"
+                        alt="Stockage Froid">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Entrepôt Frigorifique Nord</h3>
+                    <p class="project-desc">Installation de luminaires LED étanches (IP65) résistants aux températures
+                        extrêmes (-30°C).</p>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span>-68%</span>
+                            <small>Conso. Énergie</small>
+                        </div>
+                        <div class="stat-item">
+                            <span>350</span>
+                            <small>Armatures LED</small>
+                        </div>
+                        <div class="stat-item">
+                            <span>100%</span>
+                            <small>Financé CEE</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-padding"
+        style="background: rgba(16, 185, 129, 0.03); border-top: 1px solid var(--border); text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; color: white; margin-bottom: 20px;">Votre entreprise sera-t-elle la prochaine
+                ?</h2>
+            <p
+                style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Faites comme nos 500+ clients satisfaits. Demandez votre audit photométrique gratuit et découvrez à
+                combien s'élève votre prime CEE.
+            </p>
+            <a href="devis.html" class="btn-gradient"
+                style="padding: 16px 40px; font-size: 1.1rem; display: inline-block;">Simuler mon projet
+                gratuitement</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="nav-logo" style="margin-bottom: 20px; display: inline-block;">
+                        <img src="assets/img/logo-white 2.png" alt="logo Pure Life Groupe" style="height: 50px;">
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+                        Leader de la rénovation énergétique pour les professionnels.
+                        Nous accompagnons les entreprises vers la neutralité carbone grâce à des solutions financées.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Nos Solutions</h4>
+                    <ul>
+                        <li><a href="eclairage-industriel.html">Éclairage Industriel</a></li>
+                        <li><a href="solutions-solaire.html">Panneaux Solaires</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="about.html">Qui sommes-nous ?</a></li>
+                        <li><a href="realisations.html">Nos Réalisations</a></li>
+                        <li><a href="partenaires.html">Espace Partenaire</a></li>
+                        <li><a href="recrutement.html">Recrutement</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-cta">
+                        <h4 style="margin-bottom: 15px;">Une question ?</h4>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="tel:0522000000" style="color: white; font-weight: 800; font-size: 1.2rem;">05 22 00
+                                00 00</a>
+                            <a href="mailto:contact@purelifegroupe.fr"
+                                style="color: var(--primary);">contact@purelifegroupe.fr</a>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">
+                                38 Rue de berri, <br>75008 Paris, France
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pure Life Groupe. Tous droits réservés.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="legal.html">Mentions Légales</a>
+                    <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+                    <a href="cgu.html">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Script pour la Navbar Sticky
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // 2. Logic pour le filtre des Réalisations
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projects = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Retirer l'état actif de tous les boutons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Ajouter l'état actif au bouton cliqué
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    // Filtrer les projets
+                    projects.forEach(project => {
+                        // On retire la classe d'animation d'abord pour pouvoir la relancer
+                        project.classList.remove('fade-in');
+
+                        if (filterValue === 'all' || project.classList.contains(filterValue)) {
+                            project.classList.remove('hide-project');
+                            // Trigger un reflow (hack JS) pour relancer l'animation CSS
+                            void project.offsetWidth;
+                            project.classList.add('fade-in');
+                        } else {
+                            project.classList.add('hide-project');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
